@@ -3,10 +3,12 @@
 #
 
 # Name of your site (displayed in the header)
-name: Lily Wang
-
+name: Minium
+title: Minium
+logo: 'assets/images/logo.png'
+favicon: 'assets/images/logo.png'
 # Short bio or description (displayed in the header)
-description: Web Developer from Somewhere
+description: Collected thoughts.
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
@@ -21,12 +23,12 @@ footer-links:
   email:
   facebook:
   flickr:
-  github: barryclark/jekyll-now
+  github: lilyminium
   instagram:
   linkedin:
   pinterest:
-  rss: # just type anything here for a working RSS icon
-  twitter: jekyllrb
+  rss: anything # just type anything here for a working RSS icon
+  twitter: lilyminium
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/
@@ -47,7 +49,7 @@ url:
 # (http://yourusername.github.io/repository-name)
 # and NOT your User repository (http://yourusername.github.io)
 # then add in the baseurl here, like this: "/repository-name"
-baseurl: ""
+baseurl: "/minium"
 
 #
 # !! You don't need to change any of the configuration flags below !!
@@ -59,6 +61,8 @@ permalink: /:title/
 version: v1.2.0
 
 # Jekyll 3 now only supports Kramdown for Markdown
+markdown: kramdown
+
 kramdown:
   # Use GitHub flavored markdown, including triple backtick fenced code blocks
   input: GFM
@@ -67,6 +71,8 @@ kramdown:
   syntax_highlighter_opts:
     # Use existing pygments syntax highlighting css
     css_class: 'highlight'
+    block:
+      line_numbers: true
 
 # Set the Sass partials directory, as we're using @imports
 sass:
@@ -84,3 +90,45 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
+  - changelog.md
+
+include:
+  - _pages
+
+permalink: /:title/
+
+# Theme configuration
+
+# Authors
+authors:
+  lily:
+    name: Lily
+    display_name: Lily
+    email: lily.wang@anu.edu.au
+    twitter: https://twitter.com/lilyminium
+    description: "Yep."
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-archives
+    
+# Archives
+jekyll-archives:
+  enabled:
+    - categories
+  layout: archive
+  permalinks:
+    category: '/category/:name/'
+    
+# Pagination 
+paginate: 6
+paginate_path: /page:num/
+
+# Adsense (change to "enabled" to activate, also your client id and ad slot. Create a new ad unit from your Adsense account to get the slot.)
+adsense: "disabled"
+
+# Lazy Images ("enabled" or "disabled")
+lazyimages: "disabled"
