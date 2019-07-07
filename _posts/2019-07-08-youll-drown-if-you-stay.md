@@ -3,6 +3,7 @@ layout: post
 title: You'll surely drown here if you stay
 comments: true
 categories: reviews, science-fiction
+permalink: 2019-07-08
 ---
 
 This short story is by Alyssa Wong, a Nebula, Shirley Jackson, and World Fantasy Award-nominated author.
@@ -17,4 +18,4 @@ This story reminded me of another story I read recently. I don't remember the na
 
 I liked that the story was narrated in a second-person point of view. That is uncommon, especially without being somewhat tacky; Ellis was a fleshed-out character that escaped this fate. It was also written in present tense; this particular combination is hard! I liked that the brothel madame, Lettie, clearly had some emotional backstory going on. 
 
-It made me sad, but I think that was more because my partner Jakub is on a long flight to San Francisco far away from me and I overly identified with the Ellis/Marigold separation. 
+It made me sad, but I think that was more because my partner Jakub is on a long flight to San Francisco far away from me and I overly identified with the Ellis/Marisol separation. 

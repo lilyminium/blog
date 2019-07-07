@@ -3,6 +3,7 @@ layout: post
 title: The Sorcerer of the Wildeeps
 comments: true
 categories: reviews, science-fiction
+permalink: 2019-07-03
 ---
 
 This novella is by Kai Ashante Wilson and won the Crawford Award for best debut novel of 2015.
