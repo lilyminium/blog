@@ -4,8 +4,8 @@ title: About
 permalink: /about/
 ---
 
-Hi, I'm Lily. 
+Hi, I'm Lily. I like molecular dynamics, programming and science fiction. 
 
-### Contact me
+[Github](https://github.com/lilyminium)
 
-[email@domain.com](mailto:email@domain.com)
+[Twitter](https://twitter.com/Lilyminium)
