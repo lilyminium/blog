@@ -2,7 +2,7 @@
 layout: page
 title: Molecular dynamics resources and best practices
 permalink: /mdhelp
-featured: true
+# featured: true
 comments: true
 ---
 
@@ -16,3 +16,4 @@ Of course the foremost resource is this open access article on best practices.
     <p class='date'>November 30, 2018</p>
     <p class='doi'>10.33011/livecoms.1.1.5957</p>
 </div>
+
