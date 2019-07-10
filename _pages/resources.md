@@ -5,7 +5,7 @@ permalink: /resources
 featured: true
 comments: true
 category: resources
-image: assets/images/nglviewer.png
+image: images/nglviewer.png
 ---
 
 Here are cool things on the internet for visualising molecules and other science.

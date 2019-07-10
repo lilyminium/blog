@@ -1,0 +1,84 @@
+I"><p>Here is how to set up Ubuntu 19.04 on a computer to work, the first time.</p>
+
+<h3 id="0-obtain-a-ubuntu-usb-drive">0. Obtain a Ubuntu USB drive</h3>
+<p>You need to somehow create a bootable USB stick. This is easiest in Ubuntu and there are many tutorials already, so I won’t clutter it up.</p>
+
+<h3 id="1-install-ubuntu-and-drivers">1. Install Ubuntu and drivers</h3>
+<p>Stick the USB in and boot up the computer. You need to change the boot order to boot off the USB stick first. This differs across operating systems; on our old Ubuntu 16.04s, we hit F10 to bring up Boot Options.</p>
+
+<p>You can choose a normal installation or a minimal one. Out of convenience, we go with the normal installation; the only weirdly irritating thing it installs is Amazon. This shouldn’t take long – ours was under 10 min.</p>
+
+<p><strong>Do not reboot before Step 2.</strong></p>
+
+<h3 id="2-reconfiguring-grub-and-the-display-server">2. Reconfiguring grub and the display server</h3>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">sudo </span>apt-get upgrade
+<span class="gp">lily@gavle$</span> ubuntu-drivers autoinstall
+<span class="gp">lily@gavle$</span> <span class="nb">sudo </span>apt-get <span class="nb">install </span>build-essential
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Install Linux headers:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">sudo </span>apt <span class="nb">install </span>linux-headers-<span class="si">$(</span><span class="nb">uname</span> <span class="nt">-r</span><span class="si">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>We found that if we rebooted our computer off the <em>default</em> installation, the displays wouldn’t work. It turns out this is <em>probably</em> because of the buggy Wayland display server, but we didn’t sit down to disentangle Wayland vs. Nvidia drivers (another common source of issues) vs. buggy video drivers as a whole.</p>
+
+<p>You may like to install vim.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">sudo </span>apt <span class="nb">install </span>vim
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Edit <code class="highlighter-rouge">/etc/gdm3/custom.conf</code> by uncommenting <code class="highlighter-rouge"># WaylandEnable=false</code>.
+This will forces the computer to use the Xorg display server, ie the one that actually works.</p>
+
+<p>Edit <code class="highlighter-rouge">/etc/default/grub</code>. Replace:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="go">GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+<p>with</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="go">GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nomodeset"
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+<p>This will disable video drivers until the kernel has started.
+Update with:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">sudo </span>update-grub
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>Still do not reboot before Step 3.</strong></p>
+
+<h3 id="3-configure-ssh">3. Configure SSH</h3>
+<p>Before you reboot, set up SSH so you can get in if your displays die. This installs openssh-server, enables the service and starts the service.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">sudo </span>apt <span class="nb">install </span>openssh-server
+<span class="gp">lily@gavle$</span> <span class="nb">sudo </span>systemctl <span class="nb">enable </span>ssh
+<span class="gp">lily@gavle$</span> <span class="nb">sudo </span>systemctl allow ssh
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Test your access by ssh-ing in. To set up a firewall, first check that this line <code class="highlighter-rouge">IPV6=yes</code> is in <code class="highlighter-rouge">/etc/default/ufw</code>.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">sudo </span>ufw default deny incoming
+<span class="gp">lily@gavle$</span> <span class="nb">sudo </span>ufw default allow outgoing
+<span class="gp">lily@gavle$</span> <span class="nb">sudo </span>ufw allow ssh
+<span class="gp">lily@gavle$</span> <span class="nb">sudo </span>systemctl start ufw
+<span class="gp">lily@gavle$</span> <span class="nb">sudo </span>systemctl <span class="nb">enable </span>ufw
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="ssh-keys">SSH keys</h4>
+<p>Later, you can set up SSH keys.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>To copy your details over to other places:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>lily@gavle$ ssh-copy-id username@destination
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+:ET

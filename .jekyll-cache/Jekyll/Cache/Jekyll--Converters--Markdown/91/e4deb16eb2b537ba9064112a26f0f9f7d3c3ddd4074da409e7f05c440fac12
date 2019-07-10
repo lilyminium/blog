@@ -1,0 +1,158 @@
+I"ð<h2 id="contents">Contents</h2>
+<ul>
+  <li><a href="#notes">Useful notes</a></li>
+  <li><a href="#gmx">GROMACS</a></li>
+  <li><a href="#amber">AMBER</a></li>
+</ul>
+
+<p>A log of the installation dependencies and processes of annoying packages, as well as said packages.
+<a name="gmx"></a></p>
+
+<h2 id="gromacs">GROMACS</h2>
+<h3 id="20161">2016.1</h3>
+<h4 id="dependencies">Dependencies</h4>
+
+<p>gcc=5.5</p>
+
+<p>cuda=8.0</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle:$</span> gcc <span class="nt">--version</span>
+<span class="go">gcc (Ubuntu 5.5.0-12ubuntu1) 5.5.0 20171010
+Copyright (C) 2015 Free Software Foundation, Inc.
+</span><span class="gp">This is free software;</span> see the <span class="nb">source </span><span class="k">for </span>copying conditions.  There is NO
+<span class="gp">warranty;</span> not even <span class="k">for </span>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+<span class="go">
+</span><span class="gp">lily@gavle:$</span> nvcc <span class="nt">--version</span>
+<span class="go">nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2016 NVIDIA Corporation
+Built on Tue_Jan_10_13:22:03_CST_2017
+Cuda compilation tools, release 8.0, V8.0.61
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="process">Process</h4>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle:$</span> cmake .. <span class="nt">-DGMX_BUILD_OWN_FFTW</span><span class="o">=</span>ON <span class="nt">-DREGRESSIONTEST_DOWNLOAD</span><span class="o">=</span>ON <span class="nt">-DGMX_GPU</span><span class="o">=</span>on <span class="nt">-DCMAKE_INSTALL_PREFIX</span><span class="o">=</span>/packages/gromacs/2016.1 <span class="nt">-DCMAKE_CXX_FLAGS</span><span class="o">=</span><span class="nt">-fPIC</span> <span class="nt">-DCUDA_TOOLKIT_ROOT_DIR</span><span class="o">=</span>/packages/cuda/8.0
+<span class="gp">lily@gavle:$</span> make <span class="nt">-j</span> 6
+<span class="gp">lily@gavle:$</span> make check
+<span class="gp">lily@gavle:$</span> <span class="nb">sudo </span>checkinstall
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="20181">2018.1</h3>
+<h4 id="dependencies-1">Dependencies</h4>
+
+<p>gcc=6.5</p>
+
+<p>cuda=10.1</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle:$</span> gcc <span class="nt">--version</span>
+<span class="go">gcc (Ubuntu 6.5.0-2ubuntu1) 6.5.0 20181026
+Copyright (C) 2017 Free Software Foundation, Inc.
+</span><span class="gp">This is free software;</span> see the <span class="nb">source </span><span class="k">for </span>copying conditions.  There is NO
+<span class="gp">warranty;</span> not even <span class="k">for </span>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+<span class="go">
+</span><span class="gp">lily@gavle:$</span> nvcc <span class="nt">--version</span>
+<span class="go">nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2019 NVIDIA Corporation
+Built on Fri_Feb__8_19:08:17_PST_2019
+Cuda compilation tools, release 10.1, V10.1.105
+
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="process-1">Process</h4>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle:$</span> cmake .. <span class="nt">-DGMX_BUILD_OWN_FFTW</span><span class="o">=</span>ON <span class="nt">-DREGRESSIONTEST_DOWNLOAD</span><span class="o">=</span>ON <span class="nt">-DGMX_GPU</span><span class="o">=</span>on <span class="nt">-DCMAKE_INSTALL_PREFIX</span><span class="o">=</span>/packages/gromacs/2016.1 <span class="nt">-DCMAKE_CXX_FLAGS</span><span class="o">=</span><span class="nt">-fPIC</span> <span class="nt">-DCUDA_TOOLKIT_ROOT_DIR</span><span class="o">=</span>/packages/cuda/8.0
+<span class="gp">lily@gavle:$</span> make <span class="nt">-j</span> 6
+<span class="gp">lily@gavle:$</span> make check
+<span class="gp">lily@gavle:$</span> <span class="nb">sudo </span>checkinstall
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><a name="amber"></a></p>
+
+<h2 id="amber">AMBER</h2>
+<h3 id="18">18</h3>
+<h4 id="dependencies-2">Dependencies</h4>
+
+<p>gcc=8.3.0</p>
+
+<p>cuda=10.1</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle:$</span> gcc <span class="nt">--version</span>
+<span class="go">gcc (Ubuntu 8.3.0-6ubuntu1) 8.3.0
+Copyright (C) 2018 Free Software Foundation, Inc.
+</span><span class="gp">This is free software;</span> see the <span class="nb">source </span><span class="k">for </span>copying conditions.  There is NO
+<span class="gp">warranty;</span> not even <span class="k">for </span>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+<span class="go">
+</span><span class="gp">lily@gavle:$</span> nvcc <span class="nt">--version</span>
+<span class="go">nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2019 NVIDIA Corporation
+Built on Fri_Feb__8_19:08:17_PST_2019
+Cuda compilation tools, release 10.1, V10.1.105
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="process-2">Process</h4>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle:$</span> <span class="nb">cd</span> /packages/amber/18
+<span class="gp">lily@gavle:$</span> ./configure <span class="nt">-cuda</span> gnu
+<span class="gp">lily@gavle:$</span> <span class="nb">sudo </span>checkinstall
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>Note:</strong> I ran into trouble with AMBER not finding $CUDA_HOME. After youâ€™ve made sure it is set with echo $CUDA_HOME, one solution is:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle:$</span> <span class="nb">echo</span> <span class="nv">$CUDA_HOME</span> <span class="o">&amp;&amp;</span> checkinstall
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>However, if you are installing at a system level and require root permissions, <code class="highlighter-rouge">echo $CUDA_HOME &amp;&amp; sudo checkinstall</code> <em>did not</em> work for me. The only way to get around it was to start a root session.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle:$</span> <span class="nb">sudo </span>su
+<span class="gp">root@gavle:$</span> <span class="nb">export </span><span class="nv">CUDA_HOME</span><span class="o">=</span>/packages/cuda/10.1
+<span class="gp">root@gavle:$</span> <span class="nb">echo</span> <span class="nv">$CUDA_HOME</span> <span class="o">&amp;&amp;</span> checkinstall
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>I also symlinked <code class="highlighter-rouge">/bin/cpptraj.cuda</code> to <code class="highlighter-rouge">/bin/cpptraj</code> .</p>
+:ET
