@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# Modified from the SAMPL Challenges site
+
 import argparse
 import re
 import os

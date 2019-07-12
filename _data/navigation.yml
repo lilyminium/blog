@@ -101,12 +101,6 @@ setup-ubuntu-19.md:
       children:
       - title: Checkinstall
         url: /setup-ubuntu-19#checkinstall
-        children:
-        - title: Installing GCC
-          url: /setup-ubuntu-19#installing-gcc
-          children:
-          - title: GCC 5.4
-            url: /setup-ubuntu-19#gcc-54
     - title: 5. Environment modules
       url: /setup-ubuntu-19#5-environment-modules
     - title: 6. Anaconda and Python

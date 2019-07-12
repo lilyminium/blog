@@ -3,9 +3,8 @@ layout: single
 title: How to set-up Ubuntu 19.04
 permalink: /setup-ubuntu-19
 image: images/disco_dingo.jpg
-featured: true
+featured: false
 comments: true
-toc: true
 sidebar:
     nav: setup-ubuntu-19.md
 ---
@@ -101,29 +100,6 @@ lily@gavle$ dpkg -r yourpackagename
 
 ```console
 lily@gavle$ sudo apt install checkinstall
-```
-
-#### Installing GCC
-You can mostly find gcc 6+ in the Disco Dingo repository and install them with `apt install gcc-8` etc. However, older versions require a bit more effort.
-
-##### GCC 5.4
-This is needed for CUDA 8.0, which is needed for GROMACS 2016.1. Download the source from the GCC website. Unpack it and make a build directory ([instructions copied from the GCC website](https://gcc.gnu.org/wiki/InstallingGCC)):
-
-```console
-lily@gavle$ tar xzf gcc-4.6.2.tar.gz
-lily@gavle$ cd gcc-4.6.2
-lily@gavle$ ./contrib/download_prerequisites
-lily@gavle$ cd ..
-lily@gavle$ mkdir objdir
-lily@gavle$ cd objdir
-```
-Now you need to modify `libgcc/config/i386/linux_unwind.h` to change two instances of `struct ucontext *uc_` to `struct ucontext_t *uc_`. In GCC 6.4 these were on lines 61 and 141, but there may be minor differences.
-
-Now configure and checkinstall:
-```console
-lily@gavle$ $PWD/../gcc-4.6.2/configure --prefix=$HOME/GCC-4.6.2 --enable-languages=c,c++,fortran,go --disable-multilib
-lily@gavle$ make
-lily@gavle$ checkinstall
 ```
 
 
