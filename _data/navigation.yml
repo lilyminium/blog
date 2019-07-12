@@ -7,8 +7,6 @@ main:
     url: /setup-compchem/
   - title: Tags
     url: /tags/
-  - title: Mediumish Template for Jekyll
-    url: /about/
   - title: Categories
     url: /categories/
   - title: How to set-up Ubuntu 19.04
@@ -67,10 +65,6 @@ pages/setup-compchem:
 pages/tags:
   - title: Tags
     url: /tags#
-
-pages/about:
-  - title: Mediumish Template for Jekyll
-    url: /about#
 
 pages/categories:
   - title: Categories
