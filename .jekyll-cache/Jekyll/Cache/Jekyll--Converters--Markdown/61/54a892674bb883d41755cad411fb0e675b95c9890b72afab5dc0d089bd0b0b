@@ -1,4 +1,4 @@
-I"‡<<p>Here is how to set up Ubuntu 19.04 on a computer to work, the first time.</p>
+I"y3<p>Here is how to set up Ubuntu 19.04 on a computer to work, the first time.</p>
 
 <h1 id="basics">Basics</h1>
 <h2 id="0-obtain-a-ubuntu-usb-drive">0. Obtain a Ubuntu USB drive</h2>
@@ -96,36 +96,6 @@ Update with:</p>
 
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">sudo </span>apt <span class="nb">install </span>checkinstall
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h4 id="installing-gcc">Installing GCC</h4>
-<p>You can mostly find gcc 6+ in the Disco Dingo repository and install them with <code class="highlighter-rouge">apt install gcc-8</code> etc. However, older versions require a bit more effort.</p>
-
-<h5 id="gcc-54">GCC 5.4</h5>
-<p>This is needed for CUDA 8.0, which is needed for GROMACS 2016.1. Download the source from the GCC website. Unpack it and make a build directory (<a href="https://gcc.gnu.org/wiki/InstallingGCC">instructions copied from the GCC website</a>):</p>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">tar </span>xzf gcc-4.6.2.tar.gz
-<span class="gp">lily@gavle$</span> <span class="nb">cd </span>gcc-4.6.2
-<span class="gp">lily@gavle$</span> ./contrib/download_prerequisites
-<span class="gp">lily@gavle$</span> <span class="nb">cd</span> ..
-<span class="gp">lily@gavle$</span> <span class="nb">mkdir </span>objdir
-<span class="gp">lily@gavle$</span> <span class="nb">cd </span>objdir
-</pre></td></tr></tbody></table></code></pre></div></div>
-<p>Now you need to modify <code class="highlighter-rouge">libgcc/config/i386/linux_unwind.h</code> to change two instances of <code class="highlighter-rouge">struct ucontext *uc_</code> to <code class="highlighter-rouge">struct ucontext_t *uc_</code>. In GCC 6.4 these were on lines 61 and 141, but there may be minor differences.</p>
-
-<p>Now configure and checkinstall:</p>
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nv">$PWD</span>/../gcc-4.6.2/configure <span class="nt">--prefix</span><span class="o">=</span><span class="nv">$HOME</span>/GCC-4.6.2 <span class="nt">--enable-languages</span><span class="o">=</span>c,c++,fortran,go <span class="nt">--disable-multilib</span>
-<span class="gp">lily@gavle$</span> make
-<span class="gp">lily@gavle$</span> checkinstall
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="5-environment-modules">5. Environment modules</h2>
