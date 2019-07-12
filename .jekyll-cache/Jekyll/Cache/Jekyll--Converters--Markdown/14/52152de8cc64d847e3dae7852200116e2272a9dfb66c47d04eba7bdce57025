@@ -1,0 +1,187 @@
+I"�<<p>Here is how to set up Ubuntu 19.04 on a computer to work, the first time.</p>
+
+<h1 id="basics">Basics</h1>
+<h2 id="0-obtain-a-ubuntu-usb-drive">0. Obtain a Ubuntu USB drive</h2>
+
+<p>You need to somehow create a bootable USB stick. This is easiest in Ubuntu and there are many tutorials already, so I won’t clutter it up.</p>
+
+<h2 id="1-install-ubuntu-and-drivers">1. Install Ubuntu and drivers</h2>
+
+<p>Stick the USB in and boot up the computer. You need to change the boot order to boot off the USB stick first. This differs across operating systems; on our old Ubuntu 16.04s, we hit F10 to bring up Boot Options.</p>
+
+<p>You can choose a normal installation or a minimal one. Out of convenience, we go with the normal installation; the only weirdly irritating thing it installs is Amazon. This shouldn’t take long – ours was under 10 min.</p>
+
+<p>The computer will reboot after this.</p>
+
+<p><strong>Do not reboot again before Step 3.</strong></p>
+
+<h2 id="2-reconfiguring-grub-and-the-display-server">2. Reconfiguring grub and the display server</h2>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">sudo </span>apt upgrade
+<span class="gp">lily@gavle$</span> ubuntu-drivers autoinstall
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>These are most likely installed already, but you can check anyway:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">sudo </span>apt <span class="nb">install </span>build-essential
+<span class="gp">lily@gavle$</span> <span class="nb">sudo </span>apt <span class="nb">install </span>linux-headers-<span class="si">$(</span><span class="nb">uname</span> <span class="nt">-r</span><span class="si">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>We found that if we rebooted our computer off the <em>default</em> installation, the displays wouldn’t work. It turns out this is <em>probably</em> because of the buggy Wayland display server, but we didn’t sit down to disentangle Wayland vs. Nvidia drivers (another common source of issues) vs. buggy video drivers as a whole.</p>
+
+<p>You may like to install vim.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">sudo </span>apt <span class="nb">install </span>vim
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Edit <code class="highlighter-rouge">/etc/gdm3/custom.conf</code> by uncommenting <code class="highlighter-rouge"># WaylandEnable=false</code>.
+This will forces the computer to use the Xorg display server, ie the one that actually works.</p>
+
+<p>Edit <code class="highlighter-rouge">/etc/default/grub</code>. Replace:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="go">GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+<p>with</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="go">GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nomodeset"
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+<p>This will disable video drivers until the kernel has started.
+Update with:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">sudo </span>update-grub
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>Still do not reboot before Step 3.</strong></p>
+
+<h2 id="3-configure-ssh">3. Configure SSH</h2>
+<p>Before you reboot, set up SSH so you can get in if your displays die. This installs openssh-server, enables the service and starts the service.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">sudo </span>apt <span class="nb">install </span>openssh-server
+<span class="gp">lily@gavle$</span> <span class="nb">sudo </span>systemctl <span class="nb">enable </span>ssh
+<span class="gp">lily@gavle$</span> <span class="nb">sudo </span>systemctl start ssh
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Test your access by ssh-ing in. To set up a firewall, first check that this line <code class="highlighter-rouge">IPV6=yes</code> is in <code class="highlighter-rouge">/etc/default/ufw</code>.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">sudo </span>ufw default deny incoming
+<span class="gp">lily@gavle$</span> <span class="nb">sudo </span>ufw default allow outgoing
+<span class="gp">lily@gavle$</span> <span class="nb">sudo </span>ufw allow ssh
+<span class="gp">lily@gavle$</span> <span class="nb">sudo </span>systemctl start ufw
+<span class="gp">lily@gavle$</span> <span class="nb">sudo </span>systemctl <span class="nb">enable </span>ufw
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="ssh-keys">SSH keys</h3>
+<p>Later, you can set up SSH keys.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>To copy your details over to other places:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>lily@gavle$ ssh-copy-id username@destination
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h1 id="extras">Extras</h1>
+<h2 id="4-checkinstall-gcc-optional">4. Checkinstall, GCC (optional)</h2>
+<h3 id="checkinstall">Checkinstall</h3>
+<p><a href="https://wiki.debian.org/CheckInstall">checkinstall</a> is a useful tool that replaces <code class="highlighter-rouge">make install</code>. It build a .deb package that is easily removable with:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> dpkg <span class="nt">-r</span> yourpackagename
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">sudo </span>apt <span class="nb">install </span>checkinstall
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="installing-gcc">Installing GCC</h4>
+<p>You can mostly find gcc 6+ in the Disco Dingo repository and install them with <code class="highlighter-rouge">apt install gcc-8</code> etc. However, older versions require a bit more effort.</p>
+
+<h5 id="gcc-54">GCC 5.4</h5>
+<p>This is needed for CUDA 8.0, which is needed for GROMACS 2016.1. Download the source from the GCC website. Unpack it and make a build directory (<a href="https://gcc.gnu.org/wiki/InstallingGCC">instructions copied from the GCC website</a>):</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">tar </span>xzf gcc-4.6.2.tar.gz
+<span class="gp">lily@gavle$</span> <span class="nb">cd </span>gcc-4.6.2
+<span class="gp">lily@gavle$</span> ./contrib/download_prerequisites
+<span class="gp">lily@gavle$</span> <span class="nb">cd</span> ..
+<span class="gp">lily@gavle$</span> <span class="nb">mkdir </span>objdir
+<span class="gp">lily@gavle$</span> <span class="nb">cd </span>objdir
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Now you need to modify <code class="highlighter-rouge">libgcc/config/i386/linux_unwind.h</code> to change two instances of <code class="highlighter-rouge">struct ucontext *uc_</code> to <code class="highlighter-rouge">struct ucontext_t *uc_</code>. In GCC 6.4 these were on lines 61 and 141, but there may be minor differences.</p>
+
+<p>Now configure and checkinstall:</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nv">$PWD</span>/../gcc-4.6.2/configure <span class="nt">--prefix</span><span class="o">=</span><span class="nv">$HOME</span>/GCC-4.6.2 <span class="nt">--enable-languages</span><span class="o">=</span>c,c++,fortran,go <span class="nt">--disable-multilib</span>
+<span class="gp">lily@gavle$</span> make
+<span class="gp">lily@gavle$</span> checkinstall
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="5-environment-modules">5. Environment modules</h2>
+<ol>
+  <li>Install dependencies. Here the latest tcl-dev is 8.6, but check.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">sudo </span>apt-get <span class="nb">install </span>tcl tcl8.6-dev
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>Download and unzip the latest <a href="http://modules.sourceforge.net/">Environment Modules</a>. Here it’s 4.2.3. Navigate to the directory.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">cd </span>modules-4.2.3/
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>Make folders to store the modulefiles and packages
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">sudo mkdir</span> /modules /packages
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>Set up the build, make, and checkinstall it.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> ./configure
+<span class="gp">lily@gavle$</span> make
+<span class="gp">lily@gavle$</span> <span class="nb">sudo </span>checkinstall
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+  <li>If <code class="highlighter-rouge">/etc/profile.d/modules.sh</code> and <code class="highlighter-rouge">/etc/profile.d/modules.csh</code> already exist, skip this step. Otherwise, copy or symlink them.
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">sudo ln</span> <span class="nt">-s</span> /usr/local/Modules/init/profile.sh /etc/profile.d/modules.sh
+<span class="gp">lily@gavle$</span> <span class="nb">sudo ln</span> <span class="nt">-s</span> /usr/local/Modules/init/profile.csh /etc/profile.d/modules.csh
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+    <p>Now, when you install applications, try to install them into /packages. Modulefiles are included in the repo for your convenience.</p>
+  </li>
+</ol>
+
+<p>Note that the default path for modulefiles is <code class="highlighter-rouge">/usr/local/Modules/modulefiles</code>. Edit <code class="highlighter-rouge">/usr/local/Modules/init/modulerc</code> and add <code class="highlighter-rouge">module use /modules</code> to use the directory you made above.</p>
+
+<h2 id="6-anaconda-and-python">6. Anaconda and Python</h2>
+<p>Download and install Anaconda <strong>before</strong> you do anything with Python. This will likely install Visual Studio Code as well, which is super helpful. Open a folder in VS Code with</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> code <span class="nb">.</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="environments">Environments</h3>
+<p>Create a new environment with</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> conda create <span class="nt">--name</span> myenv <span class="o">[</span><span class="nv">python</span><span class="o">=</span>3.6] <span class="o">[</span><span class="nv">scipy</span><span class="o">=</span>0.15.0]
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Use the options in brackets if you need a specific version of Python and/or specific packages. You can also activate it and install directly into it.</p>
+
+<p><a name="step7"></a></p>
+
+<h1 id="computational-chemistry-stuff">Computational chemistry stuff</h1>
+<p><a href="http://localhost:4000/setup-compchem"> For information on compiling GROMACS, AMBER, and possibly other packages, go here.</a></p>
+:ET

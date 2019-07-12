@@ -1,8 +1,0 @@
-I":<p>Here is how to set up Ubuntu 19.04 on a computer to work, the first time.</p>
-
-<h3 id="0-obtain-a-ubuntu-usb-drive">0. Obtain a Ubuntu USB drive</h3>
-<p>You need to somehow create a bootable USB stick. This is easiest in Ubuntu and there are many tutorials already, so I won’t clutter it up.</p>
-
-<h3 id="1-install-ubuntu">1. Install Ubuntu</h3>
-<p>Stick the USB in and boot up the computer. You need to change the boot order to boot off the USB stick first. This differs across operating systems; on our old Ubuntu 16.04s, we hit F10 to bring up Boot Options.</p>
-:ET

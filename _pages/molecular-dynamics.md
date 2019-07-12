@@ -5,6 +5,8 @@ permalink: /mdhelp
 image: images/pgp_translucent_bilayer.png
 featured: true
 comments: true
+sidebar:
+  nav: pages/molecular-dynamics
 ---
 
 How do I use molecular dynamics?
@@ -17,4 +19,3 @@ Of course the foremost resource is this open access article on best practices.
     <p class='date'>November 30, 2018</p>
     <p class='doi'>10.33011/livecoms.1.1.5957</p>
 </div>
-

@@ -1,47 +1,40 @@
 ---
-layout: page
+layout: single
 title: How to set-up Ubuntu 19.04
-permalink: /setup-ubuntu19
+permalink: /setup-ubuntu-19
 image: images/disco_dingo.jpg
 featured: true
 comments: true
+toc: true
+sidebar:
+    nav: setup-ubuntu-19.md
 ---
-## Contents
-- [0. Obtain a Ubuntu USB drive](#step0)
-- [1. Install Ubuntu and drivers](#step1)
-- [2. Reconfiguring grub and the display server](#step2)
-- [3. Configure SSH](#step3)
-- [4. Checkinstall, GCC (optional)](#step4)
-- [5. Environment Modules](#step5)
-- [6. Anaconda and Python](#step6)
-- [7. Other](#step7)
 
-Here is how to set up Ubuntu 19.04 on a computer to work, the first time. Later it goes into some computational chemistry specific stuff, but the start is always helpful.
+Here is how to set up Ubuntu 19.04 on a computer to work, the first time. 
 
-<a name="step0"/>
+# Basics
+## 0. Obtain a Ubuntu USB drive
 
-### 0. Obtain a Ubuntu USB drive
 You need to somehow create a bootable USB stick. This is easiest in Ubuntu and there are many tutorials already, so I won't clutter it up.
 
-<a name="step1"/>
+## 1. Install Ubuntu and drivers
 
-### 1. Install Ubuntu and drivers
 Stick the USB in and boot up the computer. You need to change the boot order to boot off the USB stick first. This differs across operating systems; on our old Ubuntu 16.04s, we hit F10 to bring up Boot Options.
 
 You can choose a normal installation or a minimal one. Out of convenience, we go with the normal installation; the only weirdly irritating thing it installs is Amazon. This shouldn't take long -- ours was under 10 min. 
 
-**Do not reboot before Step 2.**
+The computer will reboot after this.
 
-<a name="step2"/>
+**Do not reboot again before Step 3.**
 
-### 2. Reconfiguring grub and the display server
+## 2. Reconfiguring grub and the display server
 ```console
-lily@gavle$ sudo apt-get upgrade
+lily@gavle$ sudo apt upgrade
 lily@gavle$ ubuntu-drivers autoinstall
-lily@gavle$ sudo apt-get install build-essential
 ```
-Install Linux headers:
+These are most likely installed already, but you can check anyway:
 ```console
+lily@gavle$ sudo apt install build-essential
 lily@gavle$ sudo apt install linux-headers-$(uname -r)
 ```
 
@@ -71,14 +64,13 @@ lily@gavle$ sudo update-grub
 
 **Still do not reboot before Step 3.**
 
-<a name="step3"/>
 
-### 3. Configure SSH
+## 3. Configure SSH
 Before you reboot, set up SSH so you can get in if your displays die. This installs openssh-server, enables the service and starts the service.
 ```console
 lily@gavle$ sudo apt install openssh-server
 lily@gavle$ sudo systemctl enable ssh
-lily@gavle$ sudo systemctl allow ssh
+lily@gavle$ sudo systemctl start ssh
 ```
 Test your access by ssh-ing in. To set up a firewall, first check that this line `IPV6=yes` is in `/etc/default/ufw`. 
 ```console
@@ -89,7 +81,7 @@ lily@gavle$ sudo systemctl start ufw
 lily@gavle$ sudo systemctl enable ufw
 ```
 
-#### SSH keys
+### SSH keys
 Later, you can set up SSH keys.
 ```console
 lily@gavle$ ssh-keygen -t rsa -b 4096
@@ -98,10 +90,10 @@ To copy your details over to other places:
 ```
 lily@gavle$ ssh-copy-id username@destination
 ```
-<a name="step4"/>
 
-### 4. Checkinstall, GCC (optional)
-#### Checkinstall
+# Extras
+## 4. Checkinstall, GCC (optional)
+### Checkinstall
 [checkinstall](https://wiki.debian.org/CheckInstall) is a useful tool that replaces `make install`. It build a .deb package that is easily removable with:
 ```console
 lily@gavle$ dpkg -r yourpackagename
@@ -133,9 +125,9 @@ lily@gavle$ $PWD/../gcc-4.6.2/configure --prefix=$HOME/GCC-4.6.2 --enable-langua
 lily@gavle$ make
 lily@gavle$ checkinstall
 ```
-<a name="step5"/>
 
-### 5. Environment modules
+
+## 5. Environment modules
 1. Install dependencies. Here the latest tcl-dev is 8.6, but check.
 ```console
 lily@gavle$ sudo apt-get install tcl tcl8.6-dev
@@ -153,7 +145,7 @@ lily@gavle$ sudo mkdir /modules /packages
 
 4. Set up the build, make, and checkinstall it.
 ```console
-lily@gavle$ ./configure --with-module-path=/modules/
+lily@gavle$ ./configure
 lily@gavle$ make
 lily@gavle$ sudo checkinstall
 ```
@@ -164,16 +156,16 @@ lily@gavle$ sudo ln -s /usr/local/Modules/init/profile.csh /etc/profile.d/module
 ```
 Now, when you install applications, try to install them into /packages. Modulefiles are included in the repo for your convenience.
 
-<a name="step6"/>
+Note that the default path for modulefiles is `/usr/local/Modules/modulefiles`. Edit `/usr/local/Modules/init/modulerc` and add `module use /modules` to use the directory you made above.
 
-### 6. Anaconda and Python
+## 6. Anaconda and Python
 Download and install Anaconda **before** you do anything with Python. This will likely install Visual Studio Code as well, which is super helpful. Open a folder in VS Code with
 
 ```console
 lily@gavle$ code .
 ```
 
-#### Environments
+### Environments
 Create a new environment with 
 ```console
 lily@gavle$ conda create --name myenv [python=3.6] [scipy=0.15.0]
@@ -182,5 +174,5 @@ Use the options in brackets if you need a specific version of Python and/or spec
 
 <a name="step7"/>
 
-### 7. Other
+# Computational chemistry stuff
 <a href="{{ site.url }}/setup-compchem"> For information on compiling GROMACS, AMBER, and possibly other packages, go here.</a>

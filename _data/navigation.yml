@@ -1,0 +1,118 @@
+main:
+  - title: Molecular dynamics resources and best practices
+    url: /mdhelp/
+  - title: Visualising things on the internet
+    url: /resources/
+  - title: How to compile things
+    url: /setup-compchem/
+  - title: Tags
+    url: /tags/
+  - title: Mediumish Template for Jekyll
+    url: /about/
+  - title: Categories
+    url: /categories/
+  - title: How to set-up Ubuntu 19.04
+    url: /setup-ubuntu-19/
+
+pages/molecular-dynamics:
+  - title: Molecular dynamics resources and best practices
+    url: /mdhelp#
+
+pages/resources:
+  - title: Visualising things on the internet
+    url: /resources#
+
+pages/setup-compchem:
+  - title: How to compile things
+    url: /setup-compchem#
+  - title: GROMACS
+    url: /setup-compchem#gromacs
+    children:
+    - title: 2016.1
+      url: /setup-compchem#20161
+      children:
+      - title: Installing GCC
+        url: /setup-compchem#installing-gcc
+        children:
+        - title: GCC 5.4
+          url: /setup-compchem#gcc-54
+      - title: Installing CUDA
+        url: /setup-compchem#installing-cuda
+      - title: Installing GROMACS
+        url: /setup-compchem#installing-gromacs
+        children:
+        - title: Process
+          url: /setup-compchem#process
+    - title: 2018.3
+      url: /setup-compchem#20183
+      children:
+      - title: 
+        url: /setup-compchem#
+        children:
+        - title: Process
+          url: /setup-compchem#process
+  - title: AMBER
+    url: /setup-compchem#amber
+    children:
+    - title: Amber16
+      url: /setup-compchem#amber16
+    - title: AmberTools 19
+      url: /setup-compchem#ambertools-19
+      children:
+      - title: Dependencies
+        url: /setup-compchem#dependencies
+      - title: Process
+        url: /setup-compchem#process
+
+pages/tags:
+  - title: Tags
+    url: /tags#
+
+pages/about:
+  - title: Mediumish Template for Jekyll
+    url: /about#
+
+pages/categories:
+  - title: Categories
+    url: /categories#
+
+setup-ubuntu-19.md:
+  - title: How to set-up Ubuntu 19.04
+    url: /setup-ubuntu-19#
+  - title: Basics
+    url: /setup-ubuntu-19#basics
+    children:
+    - title: 0. Obtain a Ubuntu USB drive
+      url: /setup-ubuntu-19#0-obtain-a-ubuntu-usb-drive
+    - title: 1. Install Ubuntu and drivers
+      url: /setup-ubuntu-19#1-install-ubuntu-and-drivers
+    - title: 2. Reconfiguring grub and the display server
+      url: /setup-ubuntu-19#2-reconfiguring-grub-and-the-display-server
+    - title: 3. Configure SSH
+      url: /setup-ubuntu-19#3-configure-ssh
+      children:
+      - title: SSH keys
+        url: /setup-ubuntu-19#ssh-keys
+  - title: Extras
+    url: /setup-ubuntu-19#extras
+    children:
+    - title: 4. Checkinstall, GCC (optional)
+      url: /setup-ubuntu-19#4-checkinstall-gcc-optional
+      children:
+      - title: Checkinstall
+        url: /setup-ubuntu-19#checkinstall
+        children:
+        - title: Installing GCC
+          url: /setup-ubuntu-19#installing-gcc
+          children:
+          - title: GCC 5.4
+            url: /setup-ubuntu-19#gcc-54
+    - title: 5. Environment modules
+      url: /setup-ubuntu-19#5-environment-modules
+    - title: 6. Anaconda and Python
+      url: /setup-ubuntu-19#6-anaconda-and-python
+      children:
+      - title: Environments
+        url: /setup-ubuntu-19#environments
+  - title: Computational chemistry stuff
+    url: /setup-ubuntu-19#computational-chemistry-stuff

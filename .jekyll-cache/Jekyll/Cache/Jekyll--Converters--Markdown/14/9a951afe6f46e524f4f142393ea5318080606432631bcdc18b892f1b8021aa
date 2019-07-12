@@ -1,0 +1,138 @@
+I"9#<p>A log of the installation dependencies and processes of annoying packages, as well as said packages.</p>
+
+<h1 id="gromacs">GROMACS</h1>
+
+<h2 id="20161">2016.1</h2>
+<p>This requires cuda 8.0, which requires gcc 5.</p>
+
+<h3 id="installing-gcc">Installing GCC</h3>
+<p>You can mostly find gcc 6+ in the Disco Dingo repository and install them with <code class="highlighter-rouge">apt install gcc-8</code> etc. However, older versions require a bit more effort.</p>
+
+<h4 id="gcc-54">GCC 5.4</h4>
+<p>Download the source from the GCC website. Unpack it and make a build directory (<a href="https://gcc.gnu.org/wiki/InstallingGCC">instructions copied from the GCC website</a>):</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nb">tar </span>xzf gcc-5.4.0.tar.gz
+<span class="gp">lily@gavle$</span> <span class="nb">cd </span>gcc-5.4.0
+<span class="gp">lily@gavle$</span> ./contrib/download_prerequisites
+<span class="gp">lily@gavle$</span> <span class="nb">cd</span> ..
+<span class="gp">lily@gavle$</span> <span class="nb">mkdir </span>objdir
+<span class="gp">lily@gavle$</span> <span class="nb">cd </span>objdir
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Now you need to modify <code class="highlighter-rouge">libgcc/config/i386/linux_unwind.h</code> to change two instances of <code class="highlighter-rouge">struct ucontext *uc_</code> to <code class="highlighter-rouge">struct ucontext_t *uc_</code>. In GCC 6.4 these were on lines 61 and 141, but there may be minor differences. (This is not required for the patched version available on our shared drive, O’Mara group readers.)</p>
+
+<p>Now configure and checkinstall. I’ve configured this to install on a hard drive mounted at <code class="highlighter-rouge">/store</code>, but you can equally install it in your home directory or elsewhere.</p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle$</span> <span class="nv">$PWD</span>/../gcc-5.4.0/configure <span class="nt">--prefix</span><span class="o">=</span>/store/opt/gcc-5.4.0 <span class="nt">--enable-languages</span><span class="o">=</span>c,c++,fortran <span class="nt">--disable-multilib</span>
+<span class="gp">lily@gavle$</span> make
+<span class="gp">lily@gavle$</span> <span class="nb">sudo </span>checkinstall
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p><strong>Make sure your checkinstall package has a version number, or it’ll fail!</strong></p>
+
+<h3 id="installing-cuda">Installing CUDA</h3>
+
+<h3 id="installing-gromacs">Installing GROMACS</h3>
+
+<h4 id="process">Process</h4>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle:$</span> <span class="nb">tar </span>xfz gromacs-2016.1.tar.z
+<span class="gp">lily@gavle:$</span> <span class="nb">cd </span>gromacs-2016.1
+<span class="gp">lily@gavle:$</span> <span class="nb">mkdir </span>build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>build
+<span class="gp">lily@gavle:$</span> cmake .. <span class="nt">-DGMX_BUILD_OWN_FFTW</span><span class="o">=</span>ON <span class="nt">-DREGRESSIONTEST_DOWNLOAD</span><span class="o">=</span>ON <span class="nt">-DGMX_GPU</span><span class="o">=</span>on <span class="nt">-DCMAKE_INSTALL_PREFIX</span><span class="o">=</span>/packages/gromacs/gromacs-2016.1 <span class="nt">-DCMAKE_CXX_FLAGS</span><span class="o">=</span><span class="nt">-fPIC</span> <span class="nt">-DCUDA_TOOLKIT_ROOT_DIR</span><span class="o">=</span>/packages/cuda/cuda-8.0
+<span class="gp">lily@gavle:$</span> make <span class="nt">-j</span> 6
+<span class="gp">lily@gavle:$</span> make check
+<span class="gp">lily@gavle:$</span> <span class="nb">sudo </span>checkinstall
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="20183">2018.3</h2>
+<p>This is a lot easier.</p>
+
+<h4 id="process-1">Process</h4>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle:$</span> cmake .. <span class="nt">-DGMX_BUILD_OWN_FFTW</span><span class="o">=</span>ON <span class="nt">-DREGRESSIONTEST_DOWNLOAD</span><span class="o">=</span>ON <span class="nt">-DGMX_GPU</span><span class="o">=</span>on <span class="nt">-DCMAKE_INSTALL_PREFIX</span><span class="o">=</span>/packages/gromacs/gromacs-2018.3 <span class="nt">-DCMAKE_CXX_FLAGS</span><span class="o">=</span><span class="nt">-fPIC</span> <span class="nt">-DCUDA_TOOLKIT_ROOT_DIR</span><span class="o">=</span>/packages/cuda/10.1
+<span class="gp">lily@gavle:$</span> make <span class="nt">-j</span> 6
+<span class="gp">lily@gavle:$</span> make check
+<span class="gp">lily@gavle:$</span> <span class="nb">sudo </span>checkinstall
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><a name="amber"></a></p>
+
+<h1 id="amber">AMBER</h1>
+
+<h2 id="amber16">Amber16</h2>
+<p>This is the version we have the license for, but I imagine they’re all similar.</p>
+
+<h2 id="ambertools-19">AmberTools 19</h2>
+<h3 id="dependencies">Dependencies</h3>
+
+<p>gcc=8.3.0</p>
+
+<p>cuda=10.1</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle:$</span> gcc <span class="nt">--version</span>
+<span class="go">gcc (Ubuntu 8.3.0-6ubuntu1) 8.3.0
+Copyright (C) 2018 Free Software Foundation, Inc.
+</span><span class="gp">This is free software;</span> see the <span class="nb">source </span><span class="k">for </span>copying conditions.  There is NO
+<span class="gp">warranty;</span> not even <span class="k">for </span>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+<span class="go">
+</span><span class="gp">lily@gavle:$</span> nvcc <span class="nt">--version</span>
+<span class="go">nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2019 NVIDIA Corporation
+Built on Fri_Feb__8_19:08:17_PST_2019
+Cuda compilation tools, release 10.1, V10.1.105
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="process-2">Process</h3>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle:$</span> <span class="nb">cd</span> /packages/amber/18
+<span class="gp">lily@gavle:$</span> ./configure <span class="nt">-cuda</span> gnu
+<span class="gp">lily@gavle:$</span> <span class="nb">sudo </span>checkinstall
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>Note:</strong> I ran into trouble with AMBER not finding $CUDA_HOME. After you’ve made sure it is set with echo $CUDA_HOME, one solution is:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle:$</span> <span class="nb">echo</span> <span class="nv">$CUDA_HOME</span> <span class="o">&amp;&amp;</span> checkinstall
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>However, if you are installing at a system level and require root permissions, <code class="highlighter-rouge">echo $CUDA_HOME &amp;&amp; sudo checkinstall</code> <em>did not</em> work for me. The only way to get around it was to start a root session.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="gp">lily@gavle:$</span> <span class="nb">sudo </span>su
+<span class="gp">root@gavle:$</span> <span class="nb">export </span><span class="nv">CUDA_HOME</span><span class="o">=</span>/packages/cuda/10.1
+<span class="gp">root@gavle:$</span> <span class="nb">echo</span> <span class="nv">$CUDA_HOME</span> <span class="o">&amp;&amp;</span> checkinstall
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>I also symlinked <code class="highlighter-rouge">/bin/cpptraj.cuda</code> to <code class="highlighter-rouge">/bin/cpptraj</code> .</p>
+:ET
