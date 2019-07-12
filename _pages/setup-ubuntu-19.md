@@ -3,7 +3,7 @@ layout: single
 title: How to set-up Ubuntu 19.04
 permalink: /setup-ubuntu-19
 image: images/disco_dingo.jpg
-featured: false
+featured: true
 comments: true
 sidebar:
     nav: setup-ubuntu-19.md
