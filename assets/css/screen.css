@@ -92,9 +92,9 @@ section.recent-posts {
 
 @media (min-width:576px) {
     .card-columns.listfeaturedtag {
-        -webkit-column-count: 2;
-        -moz-column-count: 2;
-        column-count: 2;
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
     }
 }
 
@@ -112,13 +112,13 @@ section.recent-posts {
 }
 
 .listfeaturedtag .wrapthumbnail {
-    height: 290px;
+    height: 200px;
     flex: 0 0 auto;
     height: 100%;
 }
 
 .maxthumb {
-    max-height: 300px;
+    max-height: 200px;
     overflow: hidden;
 }
 
@@ -143,7 +143,7 @@ section.recent-posts {
 
 .listfeaturedtag h2.card-title,
 .listrecent h2.card-title {
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 700;
     line-height: 1.25;
 }
@@ -151,7 +151,7 @@ section.recent-posts {
 .listfeaturedtag h4.card-text,
 .listrecent h4.card-text {
     color: rgba(0, 0, 0, .44);
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     line-height: 1.6;
     font-weight: 400;
 }
@@ -312,7 +312,8 @@ span.post-read-more a:hover {
 }
 
 .mainheading h1.posttitle {
-    font-weight: 100;
+    font-weight: 30;
+    font-size: large;
     /* margin-bottom: 1rem; */
 }
 
@@ -334,7 +335,7 @@ span.post-read-more a:hover {
 
 .article-post {
     font-family: Merriweather;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     line-height: 1.84;
     color: rgba(0, 0, 0, .8);
 }
@@ -450,12 +451,12 @@ blockquote {
 
     .listfeaturedtag .wrapfooter {
         position: relative;
-        margin-top: 30px;
+        /* margin-top: 30px; */
     }
 
-    .listfeaturedtag .card-block {
-        padding: 20px;
-    }
+    /* .listfeaturedtag .card-block { */
+        /* padding: 20px; */
+    /* } */
 
     .footer {
         margin-top: 0px;
