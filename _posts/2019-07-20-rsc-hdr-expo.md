@@ -39,7 +39,7 @@ The room was also really warm. We couldn't turn the heating down, as there was n
 
 ## Decisions that worked:
 
-**1. Moving from pen and paper to an online voting system with multiple choies**
+**1. Moving from pen and paper to an online voting system with multiple choices**
 
 I was worried that this slightly higher barrier would decrease voting. Given that 75% people voted in both sessions, it apparently didn't (to a significant extent). Having a QR code helped, as most modern smartphones can just take a picture of it and click the link that pops ups. This simplified counting a lot! Patrick organised this through Google Forms. 
 

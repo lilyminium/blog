@@ -2,7 +2,7 @@
 layout: page
 title: Visualising things on the internet
 permalink: /resources
-featured: true
+featured: false
 comments: true
 category: resources
 image: images/nglviewer.png

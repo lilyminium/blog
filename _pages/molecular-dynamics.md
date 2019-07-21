@@ -3,7 +3,7 @@ layout: page
 title: Molecular dynamics resources and best practices
 permalink: /mdhelp
 image: images/pgp_translucent_bilayer.png
-featured: true
+featured: false
 comments: true
 sidebar:
   nav: pages/molecular-dynamics

@@ -104,6 +104,7 @@ authors:
     description: "Yep."
 # Plugins
 plugins:
+  - jekyll-include-cache
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-feed
