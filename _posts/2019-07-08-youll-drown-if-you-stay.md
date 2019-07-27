@@ -2,7 +2,9 @@
 layout: post
 title: You'll surely drown here if you stay
 comments: true
-categories: reviews science-fiction
+categories: reviews
+tags:
+    - science-fiction
 date: 2019-07-08
 rating: 4
 ---

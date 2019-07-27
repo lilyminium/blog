@@ -2,7 +2,9 @@
 layout: post
 title: The Sorcerer of the Wildeeps
 comments: true
-categories: reviews science-fiction
+categories: reviews
+tags:
+    - science-fiction
 date: 2019-07-03
 rating: 3
 ---

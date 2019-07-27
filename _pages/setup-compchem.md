@@ -3,7 +3,7 @@ layout: single
 title: How to compile things
 permalink: /setup-compchem
 image: images/disco_dingo.jpg
-featured: true
+featured: false
 comments: true
 sidebar:
   nav: pages/setup-compchem

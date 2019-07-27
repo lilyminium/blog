@@ -2,7 +2,9 @@
 layout: post
 title: The Deepwater Bride
 comments: true
-categories: reviews science-fiction
+categories: reviews
+tags:
+    - science-fiction
 date: 2019-07-09
 rating: 5
 ---

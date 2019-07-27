@@ -9,6 +9,7 @@ tags:
     - HDR
 date: 2019-07-20
 image: images/hdr_expo.png
+featured: true
 ---
 
 It was fantastic to hear so many entertaining but informative talks yesterday at the Research School of Chemistry Expo. We had 25 speakers (including me!) from almost every area of research around the school. Around 80 people attended, compared to around 50 last year; 71 people voted on the People's Choice awards in the first session, and 60 in the second. This is just a post to gather my thoughts about an event that we've been organising in drips and drabs since March.
