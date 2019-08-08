@@ -8,10 +8,6 @@ date: 2019-07-08
 rating: 4
 ---
 
-This short story is by Alyssa Wong, a Nebula, Shirley Jackson, and World Fantasy Award-nominated author. I read this in The Best Science Fiction and Fantasy of the Year, Volume Eleven, published 2017.
-
-<b> *** Spoilers below *** </b>
-
 *My love, my love, come haste away!*
 *You’ll surely drown here if you stay.*
 
@@ -22,3 +18,5 @@ Not much really changes for Ellis in this story. At its open, he's a boy who sme
 This story reminded me of another story I read recently. I don't remember the name right now, but territories of lands were activated with 'grains' that took over whichever man or woman was unlucky enough to be chained to them as steward, never leaving. (Although the story had a distinctly matriarchal feel to it; the principal stewards were female). All other humans were forced to live a nomadic lifestyle. 
 
 I like that *You'll surely drown here if you stay*  was narrated in a second-person point of view. That is uncommon, especially without being somewhat tacky; Ellis was a fleshed-out character that escaped this fate. It is also written in present tense; this particular combination is hard! I liked that the brothel madame, Lettie, (who was Ellis' stepmother), clearly had some emotional backstory going on. The ending where the dead return to their loved ones is a dream that many have; it reflects an event early on in the story where Marisol indirectly asks whether Ellis can bring back her parents. This is a story centred around death: of miners, Ellis' parents, Marisol's parents, the economy of the town, and triggered by the powerful vision of a mine collapsing and literally burying people in the grave.
+
+This short story is by Alyssa Wong, a Nebula, Shirley Jackson, and World Fantasy Award-nominated author. I read this in The Best Science Fiction and Fantasy of the Year, Volume Eleven, published 2017.
