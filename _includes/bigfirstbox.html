@@ -3,7 +3,15 @@
 <div class="col-md-6">
 <div class="card border-0 mb-4 box-shadow">   
 <a href="{{site.baseurl}}{{post.url}}">
-<div class="topfirstimage image" style="background-image: url({% if post.image contains "://" %}{{ post.image }}{% else %} {{site.baseurl}}/{{ post.image}}{% endif %}); height: 200px;"></div>     
+
+{% if post.image %}
+    {% if post.image contains "://" %}
+        {% assign img_url = post.image %}
+    {% else %}
+        {% assign img_url = post.image | prepend: site.baseurl %}
+    {% endif %}
+    <div class="topfirstimage image" style="background-image: url({{img_url}}); height: 200px;"></div>   
+{% endif %}  
 </a>
 <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
 <h2 class="h4 font-weight-bold">
