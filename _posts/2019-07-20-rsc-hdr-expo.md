@@ -10,6 +10,7 @@ sidebar:
   nav: 2019-07-20-rsc-hdr-expo
 tags:
 - featured
+- first
 title: Research School of Chemistry Expo
 
 ---

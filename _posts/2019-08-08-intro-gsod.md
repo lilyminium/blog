@@ -11,6 +11,7 @@ sidebar:
 splash_image: images/gsod.png
 tags:
 - featured
+- first
 title: Google Season of Docs with MDAnalysis
 
 ---
@@ -42,6 +43,6 @@ A guide to the MDAnalysis library, separate from the API reference, that include
 ## Timeline
 August 7th (UTC) kicks off a period of "community bonding". During this time, Oliver, Richard, and I will sketch out the user guide and refine expectations. From September the actual development starts! I hope to keep to this timeline.
 
-<center><img src="{{site.baseurl}}/images/gsod_timeline.pdf" width="90%"></center>
+<center><img src="{{site.baseurl}}/images/gsod_timeline.png" width="90%"></center>
 
 I will be documenting my progress on this blog under the category [GSOD](https://blog.minium.com.au/categories#GSOD).

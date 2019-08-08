@@ -649,9 +649,9 @@ footer {
 .sticky-top-offset {
 	top:70px;
 }
-.homefirstpage .main-loop .main-loop-card:nth-child(-n+5) {
+/* .homefirstpage .main-loop .main-loop-card:nth-child(-n+5) {
 	display:none !important;
-}
+} */
 .excerpt {
     color: rgba(0,0,0,0.59);
 	margin-top:10px;
@@ -810,4 +810,10 @@ div.a2a_full_footer {display:none;}
 		 height:280px !Important;
 	 }
  }
+
+div.image {
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
  

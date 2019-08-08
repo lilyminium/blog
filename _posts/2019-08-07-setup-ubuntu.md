@@ -11,6 +11,7 @@ sidebar:
   nav: 2019-08-07-setup-ubuntu
 tags:
 - featured
+- first
 title: How to set-up Ubuntu 19.04
 
 ---

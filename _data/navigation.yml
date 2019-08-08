@@ -1,6 +1,8 @@
 main:
   - title: Google Season of Docs with MDAnalysis
     url: /intro-gsod/
+  - title: ReadTheDocs vs GitHub Pages
+    url: /mda-doc-options/
   - title: How to set-up Ubuntu 19.04
     url: /setup-ubuntu/
   - title: How to compile things
@@ -16,6 +18,10 @@ main:
       url: /intro-gsod#project-description
     - title: Timeline
       url: /intro-gsod#timeline
+
+2019-08-10-mda-doc-options:
+  - title: ReadTheDocs vs GitHub Pages
+    url: /mda-doc-options#
 
 2019-08-07-setup-ubuntu:
   - title: How to set-up Ubuntu 19.04
@@ -55,20 +61,19 @@ main:
 2019-07-29-compile-programs:
   - title: How to compile things
     url: /compile-programs#
+  - title: GROMACS
+    url: /compile-programs#gromacs
     children:
-    - title: GROMACS
-      url: /compile-programs#gromacs
+    - title: 2016.1
+      url: /compile-programs#20161
       children:
-      - title: 2016.1
-        url: /compile-programs#20161
+      - title: Installing GCC
+        url: /compile-programs#installing-gcc
         children:
-        - title: Installing GCC
-          url: /compile-programs#installing-gcc
-          children:
-          - title: GCC 5.4
-            url: /compile-programs#gcc-54
-        - title: Installing CUDA
-          url: /compile-programs#installing-cuda
+        - title: GCC 5.4
+          url: /compile-programs#gcc-54
+      - title: Installing CUDA
+        url: /compile-programs#installing-cuda
       - title: Installing GROMACS
         url: /compile-programs#installing-gromacs
         children:
@@ -77,11 +82,8 @@ main:
     - title: 2018.3
       url: /compile-programs#20183
       children:
-      - title: 
-        url: /compile-programs#
-        children:
-        - title: Process
-          url: /compile-programs#process
+      - title: Process
+        url: /compile-programs#process
   - title: AMBER
     url: /compile-programs#amber
     children:

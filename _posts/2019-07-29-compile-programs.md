@@ -4,13 +4,13 @@ categories:
 - ubuntu
 comments: true
 featured: false
-image: images/disco_dingo.jpg
+image: images/gromacs.png
 layout: single
 sidebar:
-  img: images/disco_dingo.jpg
   nav: 2019-07-29-compile-programs
 tags:
 - featured
+- first
 title: How to compile things
 
 ---
@@ -18,15 +18,15 @@ title: How to compile things
 
 A log of the installation dependencies and processes of annoying packages, as well as said packages.
 
-## GROMACS
+# GROMACS
 
-### 2016.1
+## 2016.1
 This requires cuda 8.0, which requires gcc 5.
 
-#### Installing GCC
+### Installing GCC
 You can mostly find gcc 6+ in the Disco Dingo repository and install them with `apt install gcc-8` etc. However, older versions require a bit more effort.
 
-##### GCC 5.4
+#### GCC 5.4
 Download the source from the GCC website. Unpack it and make a build directory ([instructions copied from the GCC website](https://gcc.gnu.org/wiki/InstallingGCC)):
 
 ```console
@@ -72,7 +72,7 @@ To switch between them:
 sudo update-alternatives --config gcc
 ```
 
-#### Installing CUDA
+### Installing CUDA
 Make sure you have the patched version of `cuda_8.0.61_375.26_linux.run`. Unpack this and copy `InstallUtils.pm` to your computer.
 ```console
 ./cuda_8.0.61_375.25_linux.run --tar mxvf
@@ -104,7 +104,7 @@ sudo checkinstall
 ## 2018.3
 This is a lot easier.
 
-#### Process
+### Process
 ```console
 cmake .. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON \
 -DGMX_GPU=on -DCMAKE_INSTALL_PREFIX=/packages/gromacs/gromacs-2018.3 \
