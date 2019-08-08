@@ -1,10 +1,9 @@
 ---
-layout: post
+layout: single
 title: Whisper Road (Murder Ballad No. 9)
 comments: true
 categories: reviews
-tags:
-    - science-fiction
+tags: [science-fiction]
 date: 2019-07-27
 rating: 4
 ---

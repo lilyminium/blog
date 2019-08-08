@@ -1,10 +1,9 @@
 ---
-layout: post
+layout: single
 title: You'll surely drown here if you stay
 comments: true
 categories: reviews
-tags:
-    - science-fiction
+tags: [ science-fiction ]
 date: 2019-07-08
 rating: 4
 ---

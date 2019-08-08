@@ -1,10 +1,9 @@
 ---
-layout: post
+layout: single
 title: The Deepwater Bride
 comments: true
 categories: reviews
-tags:
-    - science-fiction
+tags: [science-fiction]
 date: 2019-07-09
 rating: 5
 ---

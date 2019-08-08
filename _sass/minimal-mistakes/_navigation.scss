@@ -44,6 +44,7 @@
 
   li {
     display: inline;
+
   }
 
   .current {
@@ -449,6 +450,17 @@
     -webkit-transform: translate(0, 10%);
             -ms-transform: translate(0, 10%);
         transform: translate(0, 10%);
+
+  }
+
+  ul > li {
+    opacity: 1;
+
+
+    &:hover {
+      opacity: 0.75;
+      text-decoration: underline;
+    }
   }
 }
 

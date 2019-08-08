@@ -1,15 +1,17 @@
 ---
-layout: post
-title: Research School of Chemistry Expo
+categories: PhD
 comments: true
-categories: university
-tags:
-    - Research School of Chemistry
-    - Australian National University
-    - HDR
 date: 2019-07-20
-image: images/hdr_expo.png
 featured: true
+image: images/hdr_expo.png
+layout: single
+sidebar:
+  image: images/hdr_expo.png
+  nav: 2019-07-20-rsc-hdr-expo
+tags:
+- featured
+title: Research School of Chemistry Expo
+
 ---
 
 It was fantastic to hear so many entertaining but informative talks yesterday at the Research School of Chemistry Expo. We had 25 speakers (including me!) from almost every area of research around the school. Around 80 people attended, compared to around 50 last year; 71 people voted on the People's Choice awards in the first session, and 60 in the second. This is just a post to gather my thoughts about an event that we've been organising in drips and drabs since March.
@@ -28,7 +30,9 @@ In 2019 I became the chair of the HDR committee and pushed for some of the chang
 
 But I'd be lying if I didn't say I was super nervous on yesterday morning. The workshops had garnered a lukewarm response; we will have to think about those. One of our 3MT judges was late for the actual event, despite being asked to arrive 10 min early. (This turned out to be a blessing in disguise: around a 1/3 of the audience filtered in during that time). Miraculously, the event held remarkably close to schedule nonetheless. I credit that to our amazing MC, Heather.
 
-## The main problems occurred because of the high attendance.
+## The main problems
+
+The main problems occurred because of high attendance.
 
 **1. Not enough food at all.**
 
@@ -38,7 +42,7 @@ Last year 50 people came; this year I optimistically hoped for 60. I made an ord
 
 The room was also really warm. We couldn't turn the heating down, as there was no thermostat; the Science Teaching Building has chemistry and biology labs in it, so I'm pretty sure professional staff retain control of the environment. 
 
-## Decisions that worked:
+## Decisions that worked
 
 **1. Moving from pen and paper to an online voting system with multiple choices**
 
@@ -77,4 +81,3 @@ Every leader in the People's Choice, and every winner overall, was a native Engl
 ## Wrap-up
 
 I am personally very happy with how yesterday went, and also very glad that it's over. (Aside from the social media stuff, post-mortem, accounting, etc ...) And while the HDR committee put a lot of work into organising the event, it was ultimately carried by the speakers and the audience. Maybe I'm too jaded and cynical, but I was bowled over by the enthusiasm and goodwill that was shown -- people actually prepared and practiced their talks, got their slides in on time, voted for good speakers over (or perhaps in addition to) their friends... it was a good afternoon. I aim to be overseas by next year, but I look forward to seeing what the expo looks like in 2021.
-
