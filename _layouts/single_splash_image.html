@@ -58,13 +58,15 @@ layout: splash
               {% include star_rating.html %}
           </div>
           {% endif %}
+          {% if page.categories %}
           <small class="d-block text-muted indented">
                 In <span class="catlist">
                     {% for category in page.categories %}
-                    <a class="text-capitalize text-muted smoothscroll link" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
+                    <a class="text-capitalize text-muted smoothscroll link" href="{{site.baseurl}}/categories.html#{{ category }}">{{ category }}</a><span class="sep">, </span>
                     {% endfor %}
                     </span>                   
             </small>
+            {% endif %}
         </header>
       {% endunless %}
 
