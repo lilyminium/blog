@@ -1,106 +1,121 @@
 main:
-  - title: Molecular dynamics resources and best practices
-    url: /mdhelp/
-  - title: Visualising things on the internet
-    url: /resources/
-  - title: How to compile things
-    url: /setup-compchem/
-  - title: Tags
-    url: /tags/
-  - title: Categories
-    url: /categories/
+  - title: Google Season of Docs with MDAnalysis
+    url: /intro-gsod/
   - title: How to set-up Ubuntu 19.04
-    url: /setup-ubuntu-19/
-
-pages/molecular-dynamics:
-  - title: Molecular dynamics resources and best practices
-    url: /mdhelp#
-
-pages/resources:
-  - title: Visualising things on the internet
-    url: /resources#
-
-pages/setup-compchem:
+    url: /setup-ubuntu/
   - title: How to compile things
-    url: /setup-compchem#
-  - title: GROMACS
-    url: /setup-compchem#gromacs
+    url: /compile-programs/
+  - title: Research School of Chemistry Expo
+    url: /rsc-hdr-expo/
+
+2019-08-08-intro-gsod:
+  - title: Google Season of Docs with MDAnalysis
+    url: /intro-gsod#
     children:
-    - title: 2016.1
-      url: /setup-compchem#20161
-      children:
-      - title: Installing GCC
-        url: /setup-compchem#installing-gcc
-        children:
-        - title: GCC 5.4
-          url: /setup-compchem#gcc-54
-      - title: Installing CUDA
-        url: /setup-compchem#installing-cuda
-      - title: Installing GROMACS
-        url: /setup-compchem#installing-gromacs
-        children:
-        - title: Process
-          url: /setup-compchem#process
-    - title: 2018.3
-      url: /setup-compchem#20183
-      children:
-      - title: 
-        url: /setup-compchem#
-        children:
-        - title: Process
-          url: /setup-compchem#process
-  - title: AMBER
-    url: /setup-compchem#amber
-    children:
-    - title: Amber16
-      url: /setup-compchem#amber16
-    - title: AmberTools 19
-      url: /setup-compchem#ambertools-19
-      children:
-      - title: Dependencies
-        url: /setup-compchem#dependencies
-      - title: Process
-        url: /setup-compchem#process
+    - title: Project description
+      url: /intro-gsod#project-description
+    - title: Timeline
+      url: /intro-gsod#timeline
 
-pages/tags:
-  - title: Tags
-    url: /tags#
-
-pages/categories:
-  - title: Categories
-    url: /categories#
-
-setup-ubuntu-19.md:
+2019-08-07-setup-ubuntu:
   - title: How to set-up Ubuntu 19.04
-    url: /setup-ubuntu-19#
+    url: /setup-ubuntu#
   - title: Basics
-    url: /setup-ubuntu-19#basics
+    url: /setup-ubuntu#basics
     children:
     - title: 0. Obtain a Ubuntu USB drive
-      url: /setup-ubuntu-19#0-obtain-a-ubuntu-usb-drive
+      url: /setup-ubuntu#0-obtain-a-ubuntu-usb-drive
     - title: 1. Install Ubuntu and drivers
-      url: /setup-ubuntu-19#1-install-ubuntu-and-drivers
+      url: /setup-ubuntu#1-install-ubuntu-and-drivers
     - title: 2. Reconfiguring grub and the display server
-      url: /setup-ubuntu-19#2-reconfiguring-grub-and-the-display-server
+      url: /setup-ubuntu#2-reconfiguring-grub-and-the-display-server
     - title: 3. Configure SSH
-      url: /setup-ubuntu-19#3-configure-ssh
+      url: /setup-ubuntu#3-configure-ssh
       children:
       - title: SSH keys
-        url: /setup-ubuntu-19#ssh-keys
+        url: /setup-ubuntu#ssh-keys
   - title: Extras
-    url: /setup-ubuntu-19#extras
+    url: /setup-ubuntu#extras
     children:
     - title: 4. Checkinstall, GCC (optional)
-      url: /setup-ubuntu-19#4-checkinstall-gcc-optional
+      url: /setup-ubuntu#4-checkinstall-gcc-optional
       children:
       - title: Checkinstall
-        url: /setup-ubuntu-19#checkinstall
+        url: /setup-ubuntu#checkinstall
     - title: 5. Environment modules
-      url: /setup-ubuntu-19#5-environment-modules
+      url: /setup-ubuntu#5-environment-modules
     - title: 6. Anaconda and Python
-      url: /setup-ubuntu-19#6-anaconda-and-python
+      url: /setup-ubuntu#6-anaconda-and-python
       children:
       - title: Environments
-        url: /setup-ubuntu-19#environments
+        url: /setup-ubuntu#environments
   - title: Computational chemistry stuff
-    url: /setup-ubuntu-19#computational-chemistry-stuff
+    url: /setup-ubuntu#computational-chemistry-stuff
+
+2019-07-29-compile-programs:
+  - title: How to compile things
+    url: /compile-programs#
+    children:
+    - title: GROMACS
+      url: /compile-programs#gromacs
+      children:
+      - title: 2016.1
+        url: /compile-programs#20161
+        children:
+        - title: Installing GCC
+          url: /compile-programs#installing-gcc
+          children:
+          - title: GCC 5.4
+            url: /compile-programs#gcc-54
+        - title: Installing CUDA
+          url: /compile-programs#installing-cuda
+      - title: Installing GROMACS
+        url: /compile-programs#installing-gromacs
+        children:
+        - title: Process
+          url: /compile-programs#process
+    - title: 2018.3
+      url: /compile-programs#20183
+      children:
+      - title: 
+        url: /compile-programs#
+        children:
+        - title: Process
+          url: /compile-programs#process
+  - title: AMBER
+    url: /compile-programs#amber
+    children:
+    - title: Amber16
+      url: /compile-programs#amber16
+    - title: AmberTools 19
+      url: /compile-programs#ambertools-19
+      children:
+      - title: Dependencies
+        url: /compile-programs#dependencies
+      - title: Process
+        url: /compile-programs#process
+  - title: Visualisation programs
+    url: /compile-programs#visualisation-programs
+    children:
+    - title: VMD
+      url: /compile-programs#vmd
+    - title: Pymol
+      url: /compile-programs#pymol
+  - title: Other
+    url: /compile-programs#other
+    children:
+    - title: Autodock
+      url: /compile-programs#autodock
+
+2019-07-20-rsc-hdr-expo:
+  - title: Research School of Chemistry Expo
+    url: /rsc-hdr-expo#
+    children:
+    - title: The main problems
+      url: /rsc-hdr-expo#the-main-problems
+    - title: Decisions that worked
+      url: /rsc-hdr-expo#decisions-that-worked
+    - title: Improvements for next year
+      url: /rsc-hdr-expo#improvements-for-next-year
+    - title: Wrap-up
+      url: /rsc-hdr-expo#wrap-up

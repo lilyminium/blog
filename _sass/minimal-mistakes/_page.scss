@@ -56,6 +56,8 @@
 .page__title {
   margin-top: 0;
   line-height: 1;
+  font-family: "Helvetica Neue";
+  font-weight: 400;
 
   & + .page__meta {
     margin-top: -0.5em;
@@ -68,8 +70,10 @@
 }
 
 .page__content {
+  
 
   h2 {
+    font-family: "Helvetica Neue";
     padding-bottom: 0.5em;
     border-bottom: 1px solid $border-color;
   }
@@ -445,5 +449,5 @@
 
 .pagination--pager {
   padding: 1em 1em; /* instead of 2em on sides */
-  font-size: 0.75em; /* 20% reduction*/
+  font-size: 1em; /* 20% reduction*/
 }

@@ -13,7 +13,7 @@ from collections import OrderedDict
 page_titles = OrderedDict()
 
 # Pages
-def get_md_pages(path='_pages'):
+def get_md_pages(path='_posts'):
     pages = []
     for p in os.listdir(path):
         if p.endswith('.md'):
@@ -31,7 +31,7 @@ def get_subtoc(headings, level, file_location):
     lines = []
     for h in headings:
         lines.append(level*2*' ' + '- title: ' + h['title'])
-        lines.append(level*2*' ' + '  url: ' + file_location + h['ref'])
+        lines.append(level*2*' ' + '  url: /' + file_location + h['ref'])
         if h['sub']:
             lines.append(level*2*' ' + '  children:')
             lines.extend(get_subtoc(h['sub'], level + 1, file_location))
@@ -60,37 +60,28 @@ def create_toc(file):
     header_string = '\n'.join(header)
     front_matter = yaml.load(header_string)
 
-    rewrite_frontmatter = False
+    if 'sidebar' not in front_matter or 'nav' not in front_matter['sidebar']:
+        return []
+
     base_filename = os.path.basename(file).replace('.md', '')
     title = ''
-    print(file, front_matter, header, content, '\n\n\n')
     if 'title' in front_matter:
         title = front_matter['title']
 
     if 'permalink' in front_matter:
         permalink = front_matter['permalink']
     else:
-        permalink = base_filename + '/'
-        rewrite_frontmatter = True
-    
+        permalink = '-'.join(base_filename.split('-')[3:])
     page_titles[title] = permalink
+    nav = base_filename
+    front_matter['sidebar']['nav'] = nav
     
-    if 'sidebar' not in front_matter or 'nav' not in front_matter['sidebar']:
-        nav = os.path.join('pages', base_filename)
-        header = [x for x in header if not x.startswith('sidebar')]
-        header.append('sidebar:')
-        header.append('  nav: ' + nav)
-        rewrite_frontmatter = True
-    else:
-        nav = front_matter['sidebar']['nav']
-    
-    if rewrite_frontmatter:
-        with open(file, 'w') as f:
-            f.write('---\n')
-            f.write('\n'.join(header))
-            f.write('\n---\n')
-            f.write('\n'.join(content))
-            f.write('')
+    with open(file, 'w') as f:
+        f.write('---\n')
+        f.write(yaml.dump(front_matter, default_flow_style=False))
+        f.write('\n---\n')
+        f.write('\n'.join(content))
+        f.write('')
 
     headings.append({'title': title,
                      'ref': '#',
@@ -102,7 +93,7 @@ def create_toc(file):
         if match is None:
             continue
         heading_level = len(match.group(1))
-        heading = match.group(2).strip()
+        heading = match.group(2).strip().strip(':')
         heading_ref = '#' + make_link_from_heading(heading)
         if heading_level == 1:
             headings.append({'title': heading,
@@ -146,7 +137,7 @@ def main(args):
     nav_lines = ['main:']
     for title, url in page_titles.items():
         nav_lines.append('  - title: ' + title)
-        nav_lines.append('    url: ' + url + '/')
+        nav_lines.append('    url: /' + url + '/')
     
     nav_lines += toc_lines
 

@@ -20,6 +20,25 @@ layout: splash
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <div class="article-post">
+    <!-- Post Featured Image -->
+    {% if page.splash_image %}
+
+    {% if site.lazyimages == "enabled" %}
+    <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if page.splash_image contains "://" %}{{ page.splash_image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" alt="{{ page.title }}">
+    {% else %}
+    <img class="featured-image img-fluid" src="{% if page.image contains "://" %}{{ page.splash_image }}{% else %}{{ site.baseurl }}/{{ page.splash_image }}{% endif %}" alt="{{ page.title }}" style="width:80%;">
+    {% endif %}
+
+    {% elsif page.image %}
+
+    {% if site.lazyimages == "enabled" %}
+    <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" alt="{{ page.title }}">
+    {% else %}
+    <img class="featured-image img-fluid" src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" alt="{{ page.title }}" style="width:80%;">
+    {% endif %}
+    
+    {% endif %}
+    <!-- End Featured Image -->
 
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
@@ -27,6 +46,7 @@ layout: splash
     {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date: "%B %d, %Y" }}">{% endif %}
 
     <div class="page__inner-wrap">
+      {% unless page.header.overlay_color or page.header.overlay_image %}
         <header>
           {% if page.title %}<h1 class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
           {% if page.read_time %}
@@ -38,7 +58,15 @@ layout: splash
               {% include star_rating.html %}
           </div>
           {% endif %}
+          <small class="d-block text-muted indented">
+                In <span class="catlist">
+                    {% for category in page.categories %}
+                    <a class="text-capitalize text-muted smoothscroll link" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
+                    {% endfor %}
+                    </span>                   
+            </small>
         </header>
+      {% endunless %}
 
       <section class="page__content" itemprop="text">
         {{ content }}
@@ -89,9 +117,5 @@ layout: splash
       </div>
     </div>
   {% endif %}
-
-  {% if page.comments %}
-    <script id="dsq-count-scr" src="//{{site.disqus}}.disqus.com/count.js"></script>
-    {% endif %}
 </div>
 
