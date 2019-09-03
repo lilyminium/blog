@@ -7,7 +7,7 @@ featured: false
 image: images/gromacs.png
 layout: single
 sidebar:
-  nav: 
+  nav: 2019-09-03-compile-programs
 tags:
 - featured
 - first
@@ -246,4 +246,3 @@ Make sure to update your path.
 ```console
 $ echo 'PATH=/store/packages/pymol/pymol-open-source/bin:$PATH' >> ~/.bashrc
 ```
-

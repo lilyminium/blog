@@ -1,69 +1,28 @@
 main:
-  - title: Google Season of Docs with MDAnalysis
-    url: /intro-gsod/
-  - title: ReadTheDocs vs GitHub Pages
-    url: /mda-doc-options/
-  - title: How to set-up Ubuntu 19.04
-    url: /setup-ubuntu/
   - title: How to compile things
     url: /compile-programs/
+  - title: Google Season of Docs with MDAnalysis
+    url: /intro-gsod/
+  - title: How to set-up Ubuntu 19.04
+    url: /setup-ubuntu/
   - title: Research School of Chemistry Expo
     url: /rsc-hdr-expo/
 
-2019-08-08-intro-gsod:
-  - title: Google Season of Docs with MDAnalysis
-    url: /intro-gsod#
-    children:
-    - title: Project description
-      url: /intro-gsod#project-description
-    - title: Timeline
-      url: /intro-gsod#timeline
-
-2019-08-10-mda-doc-options:
-  - title: ReadTheDocs vs GitHub Pages
-    url: /mda-doc-options#
-
-2019-08-07-setup-ubuntu:
-  - title: How to set-up Ubuntu 19.04
-    url: /setup-ubuntu#
-  - title: Basics
-    url: /setup-ubuntu#basics
-    children:
-    - title: 0. Obtain a Ubuntu USB drive
-      url: /setup-ubuntu#0-obtain-a-ubuntu-usb-drive
-    - title: 1. Install Ubuntu and drivers
-      url: /setup-ubuntu#1-install-ubuntu-and-drivers
-    - title: 2. Reconfiguring grub and the display server
-      url: /setup-ubuntu#2-reconfiguring-grub-and-the-display-server
-    - title: 3. Configure SSH
-      url: /setup-ubuntu#3-configure-ssh
-      children:
-      - title: SSH keys
-        url: /setup-ubuntu#ssh-keys
-  - title: Extras
-    url: /setup-ubuntu#extras
-    children:
-    - title: 4. Checkinstall, GCC (optional)
-      url: /setup-ubuntu#4-checkinstall-gcc-optional
-      children:
-      - title: Checkinstall
-        url: /setup-ubuntu#checkinstall
-    - title: 5. Environment modules
-      url: /setup-ubuntu#5-environment-modules
-    - title: 6. Anaconda and Python
-      url: /setup-ubuntu#6-anaconda-and-python
-      children:
-      - title: Environments
-        url: /setup-ubuntu#environments
-  - title: Computational chemistry stuff
-    url: /setup-ubuntu#computational-chemistry-stuff
-
-2019-07-29-compile-programs:
+2019-09-03-compile-programs:
   - title: How to compile things
     url: /compile-programs#
   - title: GROMACS
     url: /compile-programs#gromacs
     children:
+    - title: g_mydensity
+      url: /compile-programs#gmydensity
+      children:
+      - title: Install fftw-3
+        url: /compile-programs#install-fftw-3
+      - title: Install GROMACS 4.5.7
+        url: /compile-programs#install-gromacs-457
+      - title: Install g_mydensity
+        url: /compile-programs#install-gmydensity
     - title: 2016.1
       url: /compile-programs#20161
       children:
@@ -103,11 +62,50 @@ main:
       url: /compile-programs#vmd
     - title: Pymol
       url: /compile-programs#pymol
-  - title: Other
-    url: /compile-programs#other
+
+2019-08-08-intro-gsod:
+  - title: Google Season of Docs with MDAnalysis
+    url: /intro-gsod#
     children:
-    - title: Autodock
-      url: /compile-programs#autodock
+    - title: Project description
+      url: /intro-gsod#project-description
+    - title: Timeline
+      url: /intro-gsod#timeline
+
+2019-08-07-setup-ubuntu:
+  - title: How to set-up Ubuntu 19.04
+    url: /setup-ubuntu#
+  - title: Basics
+    url: /setup-ubuntu#basics
+    children:
+    - title: 0. Obtain a Ubuntu USB drive
+      url: /setup-ubuntu#0-obtain-a-ubuntu-usb-drive
+    - title: 1. Install Ubuntu and drivers
+      url: /setup-ubuntu#1-install-ubuntu-and-drivers
+    - title: 2. Reconfiguring grub and the display server
+      url: /setup-ubuntu#2-reconfiguring-grub-and-the-display-server
+    - title: 3. Configure SSH
+      url: /setup-ubuntu#3-configure-ssh
+      children:
+      - title: SSH keys
+        url: /setup-ubuntu#ssh-keys
+  - title: Extras
+    url: /setup-ubuntu#extras
+    children:
+    - title: 4. Checkinstall, GCC (optional)
+      url: /setup-ubuntu#4-checkinstall-gcc-optional
+      children:
+      - title: Checkinstall
+        url: /setup-ubuntu#checkinstall
+    - title: 5. Environment modules
+      url: /setup-ubuntu#5-environment-modules
+    - title: 6. Anaconda and Python
+      url: /setup-ubuntu#6-anaconda-and-python
+      children:
+      - title: Environments
+        url: /setup-ubuntu#environments
+  - title: Computational chemistry stuff
+    url: /setup-ubuntu#computational-chemistry-stuff
 
 2019-07-20-rsc-hdr-expo:
   - title: Research School of Chemistry Expo
