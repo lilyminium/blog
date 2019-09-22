@@ -3,6 +3,8 @@ main:
     url: /compile-programs/
   - title: Google Season of Docs with MDAnalysis
     url: /intro-gsod/
+  - title: How to remove files from a pushed git commit
+    url: /remove-git-commit-files/
   - title: How to set-up Ubuntu 19.04
     url: /setup-ubuntu/
   - title: Research School of Chemistry Expo
@@ -71,6 +73,29 @@ main:
       url: /intro-gsod#project-description
     - title: Timeline
       url: /intro-gsod#timeline
+
+2019-09-22-remove-git-commit-files:
+  - title: How to remove files from a pushed git commit
+    url: /remove-git-commit-files#
+    children:
+    - title: TLDR
+      url: /remove-git-commit-files#tldr
+    - title: The explanation
+      url: /remove-git-commit-files#the-explanation
+      children:
+      - title: git reset,  git revert, and git restore
+        url: /remove-git-commit-files#git-reset--git-revert-and-git-restore
+      - title: git reset soft, hard, and mixed
+        url: /remove-git-commit-files#git-reset-soft-hard-and-mixed
+        children:
+        - title: soft
+          url: /remove-git-commit-files#soft
+        - title: mixed
+          url: /remove-git-commit-files#mixed
+        - title: hard
+          url: /remove-git-commit-files#hard
+      - title: Unstaging a file
+        url: /remove-git-commit-files#unstaging-a-file
 
 2019-08-07-setup-ubuntu:
   - title: How to set-up Ubuntu 19.04
