@@ -16,7 +16,7 @@ title: Progress in GSOD with MDAnalysis
 
 ---
 
-I'm approaching 2 months into [working with MDAnalysis on Google Season of Docs](http://blog.minium.com.au/intro-gsod/). Now seems like a good point to reflect, review, and plan.
+I'm approaching 3 months into [working with MDAnalysis on Google Season of Docs](http://blog.minium.com.au/intro-gsod/). Now seems like a good point to reflect, review, and plan.
 
 ## The community bonding phase
 
