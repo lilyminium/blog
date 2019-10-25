@@ -3,7 +3,7 @@ categories: GSOD
 comments: true
 date: 2019-10-25
 featured: true
-image: images/gsod_mda.png
+image: images/gsod/gsod_mda.png
 layout: single
 sidebar:
   image: images/gsod/gsod_mda_small.png
