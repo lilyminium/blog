@@ -66,7 +66,7 @@ Nonetheless, I think it works well as a page in the user guide (although I suppo
 
 ### Data structures
 
-I have written pages introducing Universes, AtomGroups, Groups of atoms, and atom selection language, which are ready to be merged.
+I have written pages introducing Universes, AtomGroups, Groups of atoms, and atom selection language, which are largely ready to be published.
 
 Here is where I have fallen out of sync with the project timeline. I put together most of an introduction to Universes and AtomGroups; however, I quickly became sidetracked by also adding in pages on topologies and the atom selection language. This is because I found (and still find) it challenging to separate these concepts in a modular way. Topology attributes, selection language, and the idiosyncrasies of topology/coordinate format parsers are intertwined with the creation and behaviour of AtomGroups. As a result, the [data structures](https://github.com/MDAnalysis/UserGuide/pull/14) pull request has ballooned out into 10 commits with 20 changed files. 
 
