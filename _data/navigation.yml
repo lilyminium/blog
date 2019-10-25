@@ -1,4 +1,6 @@
 main:
+  - title: Progress in GSOD with MDAnalysis
+    url: /gsod-progress/
   - title: How to compile things
     url: /compile-programs/
   - title: Google Season of Docs with MDAnalysis
@@ -9,6 +11,39 @@ main:
     url: /setup-ubuntu/
   - title: Research School of Chemistry Expo
     url: /rsc-hdr-expo/
+
+2019-10-25-gsod-progress:
+  - title: Progress in GSOD with MDAnalysis
+    url: /gsod-progress#
+    children:
+    - title: The community bonding phase
+      url: /gsod-progress#the-community-bonding-phase
+    - title: Progress and reflection
+      url: /gsod-progress#progress-and-reflection
+      children:
+      - title: Changes to the theme
+        url: /gsod-progress#changes-to-the-theme
+      - title: Introductory pages
+        url: /gsod-progress#introductory-pages
+      - title: Data structures
+        url: /gsod-progress#data-structures
+      - title: General
+        url: /gsod-progress#general
+    - title: Onwards
+      url: /gsod-progress#onwards
+      children:
+      - title: AtomGroup coordinate methods (1st priority)
+        url: /gsod-progress#atomgroup-coordinate-methods-1st-priority
+      - title: API reference (low priority)
+        url: /gsod-progress#api-reference-low-priority
+      - title: Topology attributes (high priority)
+        url: /gsod-progress#topology-attributes-high-priority
+      - title: Formats
+        url: /gsod-progress#formats
+      - title: Building some analysis notebooks
+        url: /gsod-progress#building-some-analysis-notebooks
+    - title: Summary
+      url: /gsod-progress#summary
 
 2019-09-03-compile-programs:
   - title: How to compile things
