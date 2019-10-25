@@ -72,7 +72,7 @@ Here is where I have fallen out of sync with the project timeline. I put togethe
 
 I have decided that topology attributes deserve their own branch, so currently it is only waiting on the Jupyter notebook about constructing a Universe. This addresses concepts of building a Universe with `Universe.empty`, merging AtomGroups, and adding topology attributes. It is divided into subsections for easy linking and will be displayed using nbsphinx. 
 
-I have found that creating this notebook clarified my thoughts and pointed out holes in my, and possibly the MDAnalysis developers', knowledge ([e.g. how to add bonds to a Universe](https://groups.google.com/forum/#!topic/mdnalysis-discussion/RjfVukZBPQM)). This has been helpful for planning out how to document different aspects of the topology and its attributes. 
+I have found that creating this notebook clarified my thoughts and pointed out holes in my, and possibly the MDAnalysis community's, knowledge ([e.g. how to add bonds to a Universe](https://groups.google.com/forum/#!topic/mdnalysis-discussion/RjfVukZBPQM)). This has been helpful for planning out how to document different aspects of the topology and its attributes. 
 
 ### General
 
