@@ -8,7 +8,6 @@ layout: single
 sidebar:
   image: images/gsod/gsod_mda_small.png
   nav: 2019-08-08-intro-gsod
-# splash_image: images/gsod.png
 tags:
 - featured
 - first

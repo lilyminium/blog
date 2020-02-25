@@ -9,7 +9,7 @@ layout: single
 sidebar:
   img: images/disco_dingo.jpg
   nav: 2019-08-07-setup-ubuntu
-tags:
+tags: null
 title: How to set-up Ubuntu 19.04
 
 ---

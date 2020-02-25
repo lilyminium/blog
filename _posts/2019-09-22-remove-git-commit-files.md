@@ -9,7 +9,7 @@ layout: single
 sidebar:
   nav: 2019-09-22-remove-git-commit-files
 tags:
-  - first
+- first
 title: How to remove files from a pushed git commit
 
 ---

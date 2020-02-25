@@ -9,6 +9,8 @@ main:
     url: /remove-git-commit-files/
   - title: How to set-up Ubuntu 19.04
     url: /setup-ubuntu/
+  - title: "Project report: A user guide for MDAnalysis"
+    url: /gsod-report/
   - title: Research School of Chemistry Expo
     url: /rsc-hdr-expo/
 
@@ -166,6 +168,30 @@ main:
         url: /setup-ubuntu#environments
   - title: Computational chemistry stuff
     url: /setup-ubuntu#computational-chemistry-stuff
+
+2020-02-25-gsod-report:
+  - title: "Project report: A user guide for MDAnalysis"
+    url: /gsod-report#
+    children:
+    - title: MDAnalysis
+      url: /gsod-report#mdanalysis
+    - title: Objective
+      url: /gsod-report#objective
+    - title: Contributions
+      url: /gsod-report#contributions
+      children:
+      - title: In numbers
+        url: /gsod-report#in-numbers
+      - title: In words
+        url: /gsod-report#in-words
+    - title: Challenges
+      url: /gsod-report#challenges
+    - title: Now -- and then
+      url: /gsod-report#now----and-then
+    - title: Learnings
+      url: /gsod-report#learnings
+    - title: Thanks for all the code review
+      url: /gsod-report#thanks-for-all-the-fish-code-review
 
 2019-07-20-rsc-hdr-expo:
   - title: Research School of Chemistry Expo
