@@ -10,10 +10,10 @@
   padding-left: 1em;
   padding-right: 1em;
   -webkit-animation: $intro-transition;
-          animation: $intro-transition;
+  animation: $intro-transition;
   max-width: 100%;
   -webkit-animation-delay: 0.35s;
-          animation-delay: 0.35s;
+  animation-delay: 0.35s;
 
   @include breakpoint($x-large) {
     max-width: $x-large;
@@ -59,7 +59,7 @@
   font-family: "Helvetica Neue";
   font-weight: 400;
 
-  & + .page__meta {
+  &+.page__meta {
     margin-top: -0.5em;
   }
 }
@@ -70,15 +70,17 @@
 }
 
 .page__content {
-  
+
 
   h2 {
     font-family: "Helvetica Neue";
-    padding-bottom: 0.5em;
+    // padding-bottom: 0.5em;
     border-bottom: 1px solid $border-color;
   }
 
-  p, li, dl {
+  p,
+  li,
+  dl {
     font-size: 1em;
   }
 
@@ -87,8 +89,8 @@
     margin: 0 0 $indent-var;
 
     /* sibling indentation*/
-    @if $paragraph-indent == true {
-      & + p {
+    @if $paragraph-indent==true {
+      &+p {
         text-indent: $indent-var;
         margin-top: -($indent-var);
       }
@@ -124,16 +126,27 @@
   }
 
   /* blockquote citations */
-  blockquote + .small {
+  blockquote+.small {
     margin-top: -1.5em;
     padding-left: 1.25rem;
   }
 
   /* defines enumerated lists */
-  ol { list-style-type: decimal; }
-  ol ol { list-style-type: upper-alpha; }
-  ol ol ol { list-style-type: lower-roman; }
-  ol ol ol ol { list-style-type: lower-alpha; }
+  ol {
+    list-style-type: decimal;
+  }
+
+  ol ol {
+    list-style-type: upper-alpha;
+  }
+
+  ol ol ol {
+    list-style-type: lower-roman;
+  }
+
+  ol ol ol ol {
+    list-style-type: lower-alpha;
+  }
 }
 
 .page__hero {
@@ -141,9 +154,9 @@
   margin-bottom: 2em;
   @include clearfix;
   -webkit-animation: $intro-transition;
-          animation: $intro-transition;
+  animation: $intro-transition;
   -webkit-animation-delay: 0.25s;
-          animation-delay: 0.25s;
+  animation-delay: 0.25s;
 
   &--overlay {
     position: relative;
@@ -154,9 +167,9 @@
     background-repeat: no-repeat;
     background-position: center;
     -webkit-animation: $intro-transition;
-            animation: $intro-transition;
+    animation: $intro-transition;
     -webkit-animation-delay: 0.25s;
-            animation-delay: 0.25s;
+    animation-delay: 0.25s;
 
     a {
       color: #fff;
@@ -338,6 +351,7 @@
   transition: $global-transition;
 
   &.disabled {
+
     input,
     button,
     textarea,
@@ -448,6 +462,8 @@
    ========================================================================== */
 
 .pagination--pager {
-  padding: 1em 1em; /* instead of 2em on sides */
-  font-size: 1em; /* 20% reduction*/
+  padding: 1em 1em;
+  /* instead of 2em on sides */
+  font-size: 1em;
+  /* 20% reduction*/
 }
