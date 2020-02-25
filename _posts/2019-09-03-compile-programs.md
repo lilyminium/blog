@@ -8,7 +8,7 @@ image: images/gromacs.png
 layout: single
 sidebar:
   nav: 2019-09-03-compile-programs
-tags:
+tags: null
 title: How to compile things
 
 ---

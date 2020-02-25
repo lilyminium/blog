@@ -7,15 +7,22 @@ image: images/gsod/gsod_mda.png
 layout: single
 sidebar:
   image: images/gsod/gsod_mda_small.png
-  nav: 2020-02-24-gsod-progress
+  nav: 2020-02-25-gsod-report
 splash_image: images/gsod/gsod_mda.png
 tags:
-  - featured
-  - first
-title: "Project report: A user guide for MDAnalysis"
+- featured
+- first
+title: 'Project report: A user guide for MDAnalysis'
+
 ---
 
-This report reviews the progress of constructing [a user guide for MDAnalysis](https://www.mdanalysis.org/UserGuide/) for the inaugural [Google Season of Docs](https://developers.google.com/season-of-docs).
+This report reviews the progress of constructing [a user guide for MDAnalysis (www.mdanalysis.org/UserGuide)](https://www.mdanalysis.org/UserGuide/) for the inaugural [Google Season of Docs](https://developers.google.com/season-of-docs).
+
+
+<a href="https://www.mdanalysis.org/UserGuide/">
+  <img src="../images/gsod/mda_userguide.png" alt="MDAnalysis user guide screenshot">
+</a>
+
 
 ## MDAnalysis
 
@@ -92,4 +99,4 @@ It's difficult to quantify everything I learned throughout this project. Of cour
 
 ## Thanks for all the ~~fish~~ code review
 
-This project succeeded thanks to the experience and help generously offered by the MDAnalysis community. Chiefly I'd like to thank [Richard](https://github.com/richardjgowers) and [Oliver](https://github.com/orbeckst) for taking a chance on my _concise_ application and mentoring me in both code and documentation issues throughout the project, but I am also extremely grateful to every one of the [MDAnalysis developers](https://github.com/orgs/MDAnalysis/teams/contributors) who took the time to review my code and offer suggestions and advice. You made this experience really fun and rewarding, and I hope to continue working with you. :-)
+This project succeeded thanks to the experience and help generously offered by the MDAnalysis community. Chiefly I'd like to thank [Richard](https://github.com/richardjgowers) and [Oliver](https://github.com/orbeckst) for taking a chance on my _concise_ application and mentoring me in both code and documentation issues throughout the project, but I am also extremely grateful to every one of the [MDAnalysis developers](https://github.com/orgs/MDAnalysis/teams/contributors) who took the time to review my code and offer suggestions and advice. You made this experience really fun and rewarding, and I am excited to continue working with you into the future.
