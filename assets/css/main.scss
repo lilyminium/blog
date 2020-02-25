@@ -334,13 +334,14 @@
 	color: inherit; }
   
   h1, .h1 {
-	font-size: 2.5rem; }
+	font-size: 2.1rem; }
   
   h2, .h2 {
-	font-size: 1.75rem; }
+	font-size: 1.55rem; }
   
   h3, .h3 {
-	font-size: 1.3rem; }
+	font-size: 1.2rem;
+	text-decoration: underline; }
   
   h4, .h4 {
 	font-size: 1rem; }
@@ -444,7 +445,7 @@
   
   code {
 	font-size: 87.5%;
-	color: #ff0266;
+	color: #0c55a8;
 	word-break: break-word; }
 	a > code {
 	  color: inherit; }
@@ -7402,7 +7403,7 @@
 		max-width: 960px; } }
 	@media (min-width: 1200px) {
 	  .container {
-		max-width: 1070px; } }
+		max-width: 1140px; } }
   .container-lg {
 	  max-width:1140px;
 	  padding-right: 15px;

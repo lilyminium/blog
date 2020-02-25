@@ -10,11 +10,11 @@ sidebar:
   img: images/disco_dingo.jpg
   nav: 2019-08-07-setup-ubuntu
 tags:
-- featured
-- first
 title: How to set-up Ubuntu 19.04
 
 ---
+
+**NOTE: this has now been moved to a [permanent group resource](https://omaralab.github.io/sushi/new_computer.html)**
 
 Maybe it's time to upgrade. Maybe your Python environment's just a limping zombie at this point. Maybe you thought it'd be a good idea to mount a network drive at boot so undergraduate students wouldn't need either sudo permissions or to borrow a postgrad whenever they need to access the drive, and so you tested it on your own computer and it worked fine, and then as soon as you touched `/etc/fstab` on the honours student's computer it just up and died and nothing you do for love nor God can get it to boot up again. Here is how to set up Ubuntu 19.04 on a computer to work, the first time. 
 

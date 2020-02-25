@@ -9,16 +9,13 @@ layout: single
 sidebar:
   nav: 2019-09-03-compile-programs
 tags:
-- featured
-- first
 title: How to compile things
 
 ---
 
+**NOTE: this has now been moved to a [permanent group resource](https://omaralab.github.io/sushi/new_computer.html)**
 
 A log of the installation dependencies and processes of annoying packages, as well as said packages. **Begun 29th July 2019, updated September 3rd.** 
-
-[deb files are available here.](https://github.com/OMaraLab/sushi)
 
 
 # GROMACS

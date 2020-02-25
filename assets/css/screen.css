@@ -4,9 +4,16 @@ Copyright: Sal, WowThemes.net, https://www.wowthemes.net
 License: https://www.wowthemes.net/freebies-license/ 
 */
 @media screen and (min-width:1500px) {
-    html { font-size:18px; } /* Increase the font size on higher resolutions */
-    .container {max-width:80%;}
+    html {
+        font-size: 18px;
+    }
+
+    /* Increase the font size on higher resolutions */
+    .container {
+        max-width: 80%;
+    }
 }
+
 .mainheading {
     /* padding: 1rem 0rem; */
     text-align: left;
@@ -335,9 +342,9 @@ span.post-read-more a:hover {
 }
 
 .article-post {
-    font-family: Merriweather;
+    font-family: Lato;
     font-size: 0.9rem;
-    line-height: 1.84;
+    line-height: 1.4;
     color: rgba(0, 0, 0, .8);
 }
 
@@ -456,7 +463,7 @@ blockquote {
     }
 
     /* .listfeaturedtag .card-block { */
-        /* padding: 20px; */
+    /* padding: 20px; */
     /* } */
 
     .footer {
@@ -705,8 +712,8 @@ h6 {
 .article-post h4,
 .article-post h5,
 .article-post h6 {
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+    /* font-weight: 700; */
+    /* margin-bottom: 1.5rem; */
 }
 
 .article-post img.shadow {
@@ -879,7 +886,7 @@ iframe {
     line-height: 1;
     padding: 2px 3px;
     width: 150px;
-    font-family: Arial;
+    font-family: Lato;
     text-align: center;
     border-radius: 3px;
     transition: all .4s;
@@ -903,4 +910,16 @@ iframe {
 .lazyimg[data-srcset] {
     opacity: 0;
     transition: opacity .25s;
+}
+
+.header-line {
+    margin-bottom: 1em;
+    margin-top: 1em;
+    border-top: 1px solid #212529;
+}
+
+.single-splash {
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
 }

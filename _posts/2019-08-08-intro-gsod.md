@@ -3,12 +3,12 @@ categories: GSOD
 comments: true
 date: 2019-08-08
 featured: true
-image: images/mdanalysis.png
-layout: single_splash_image
+image: images/gsod/gsod_mda.png
+layout: single
 sidebar:
-  image: images/mdanalysis.png
+  image: images/gsod/gsod_mda_small.png
   nav: 2019-08-08-intro-gsod
-splash_image: images/gsod.png
+# splash_image: images/gsod.png
 tags:
 - featured
 - first
